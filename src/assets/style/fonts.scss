@@ -1,0 +1,27 @@
+$path: '#{$public-path}fonts/';
+
+@function split($str, $sep) {
+  $i: str-index($str, $sep);
+
+  @if $i != null {
+    @return append(
+      str-slice($str, 1, $i - 1),
+      split(str-slice($str, $i + str-length($sep)), $sep)
+    );
+  }
+
+  @return $str;
+}
+
+@mixin font($name, $format: 'woff') {
+  $parts: split($name, '-');
+
+  @font-face {
+    font-family: nth($parts, 1);
+    font-weight: nth($parts, 2);
+    src: url('#{$path}#{$name}.#{$format}') format('#{$format}');
+  }
+}
+
+@include font('SFUIDisplay-normal');
+@include font('SFUIDisplay-bold');

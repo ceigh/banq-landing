@@ -1,4 +1,13 @@
+const publicPath = '/'
+
+const sassPrependData = `
+$public-path: '${publicPath}';
+@import '@/assets/style/variables';
+`
+
 module.exports = {
+  publicPath,
+
   pluginOptions: {
     lintStyleOnBuild: true
   },
@@ -6,9 +15,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: `
-          @import "@/assets/style/variables";
-        `
+        prependData: sassPrependData
       }
     }
   }

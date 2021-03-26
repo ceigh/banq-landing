@@ -1,3 +1,3 @@
 <template>
-<div>Start section</div>
+<div />
 </template>
