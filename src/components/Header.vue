@@ -12,22 +12,34 @@
     </nav>
 
     <div class='actions'>
-      <a href='tel:74994992705'>+7 (499) 499-27-05</a>
+      <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
       <Button>перезвоните мне</Button>
     </div>
   </div>
 </header>
 </template>
 
-<style lang='scss' scoped>
-@mixin gap {
-  :not(:last-child) {
-    margin-right: var(--half-indent);
-  }
-}
+<script lang='ts'>
+import { defineComponent } from 'vue'
 
+export default defineComponent({
+  data () {
+    return {
+      phoneNumber: '+7 (499) 499-27-05'
+    }
+  },
+
+  computed: {
+    phoneNumberHref (): string {
+      return `tel:${this.phoneNumber.replace(/[^0-9]/g, '')}`
+    }
+  }
+})
+</script>
+
+<style lang='scss' scoped>
 header {
-  --indent: 2rem;
+  --indent: #{$indent};
   --half-indent: calc(var(--indent) / 2);
 
   padding: var(--indent);
@@ -35,7 +47,7 @@ header {
 
 .content {
   margin: auto;
-  max-width: calc(1920px - (var(--indent) * 2));
+  max-width: calc(#{$xl} - (var(--indent) * 2));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,6 +55,22 @@ header {
 
 nav,
 .actions {
-  @include gap;
+  :not(:last-child) {
+    margin-right: var(--half-indent);
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: tint(black);
+    }
+
+    &:active {
+      color: tint(black, 66%);
+    }
+  }
 }
 </style>

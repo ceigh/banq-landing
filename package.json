@@ -59,15 +59,8 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "mixin",
-            "include"
-          ]
-        }
-      ]
+      "at-rule-no-unknown": null,
+      "no-descending-specificity": null
     }
   },
   "browserslist": [
