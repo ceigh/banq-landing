@@ -1,9 +1,9 @@
 <template>
-  <Header />
-  <SectionStart />
+<Header />
+<SectionStart />
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { defineComponent } from 'vue'
 
 import Header from './components/Header.vue'
