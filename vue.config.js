@@ -1,10 +1,5 @@
 const publicPath = '/'
 
-const sassPrependData = `
-$public-path: '${publicPath}';
-@import '@/assets/style/variables';
-`
-
 module.exports = {
   publicPath,
 
@@ -15,7 +10,10 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: sassPrependData
+        additionalData: `
+$public-path: '${publicPath}';
+@import '@/assets/style/variables';
+`
       }
     }
   }
