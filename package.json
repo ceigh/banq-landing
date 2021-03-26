@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint:es": "vue-cli-service lint",
+    "lint:style": "vue-cli-service lint:style",
+    "lint": "yarn lint:es && yarn lint:style"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -13,6 +15,9 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@ascendancyy/vue-cli-plugin-stylelint": "^1.1.2",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -32,10 +37,10 @@
     "lint-staged": "^9.5.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
+    "stylelint-config-standard": "^18.2.0",
     "typescript": "~4.1.5"
   },
   "eslintConfig": {
-    "root": true,
     "env": {
       "node": true
     },
@@ -46,20 +51,33 @@
     ],
     "parserOptions": {
       "ecmaVersion": 2020
-    },
-    "rules": {}
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
   ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e",
+    "pre-push": "yarn lint"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
+    "*.{vue,ts,js}": [
+      "yarn lint:es",
+      "git add"
+    ],
+    "*.{vue,html,css,scss}": [
+      "yarn lint:style",
       "git add"
     ]
   }
