@@ -13,7 +13,7 @@
 
     <div class='actions'>
       <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-      <Button>перезвоните мне</Button>
+      <Button text='перезвоните мне' @click='callMeBack' />
     </div>
   </div>
 </header>
@@ -22,7 +22,13 @@
 <script lang='ts'>
 import { defineComponent } from 'vue'
 
+import Button from './Button.vue'
+
 export default defineComponent({
+  components: {
+    Button
+  },
+
   data () {
     return {
       phoneNumber: '+7 (499) 499-27-05'
@@ -33,21 +39,24 @@ export default defineComponent({
     phoneNumberHref (): string {
       return `tel:${this.phoneNumber.replace(/[^0-9]/g, '')}`
     }
+  },
+
+  methods: {
+    callMeBack (): void {
+      // console.log('callMeBack')
+    }
   }
 })
 </script>
 
 <style lang='scss' scoped>
 header {
-  --indent: #{$indent};
-  --half-indent: calc(var(--indent) / 2);
-
-  padding: var(--indent);
+  padding: $indent;
 }
 
 .content {
   margin: auto;
-  max-width: calc(#{$xl} - (var(--indent) * 2));
+  max-width: calc(#{$xl} - #{2 * $indent});
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,20 +65,20 @@ header {
 nav,
 .actions {
   :not(:last-child) {
-    margin-right: var(--half-indent);
+    margin-right: $indent-half;
   }
 
   a {
-    color: black;
     text-decoration: none;
+    color: $black;
 
     &:hover,
     &:focus {
-      color: tint(black);
+      color: lighten($black, 33%);
     }
 
     &:active {
-      color: tint(black, 66%);
+      color: lighten($black, 66%);
     }
   }
 }

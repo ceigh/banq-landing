@@ -5,3 +5,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.material-icons {
+  &.md-18 {
+    font-size: 18px;
+  }
+}
