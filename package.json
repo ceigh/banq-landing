@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint:es": "vue-cli-service lint",
-    "lint:style": "vue-cli-service lint:style",
+    "lint:es": "vue-cli-service lint --no-fix",
+    "lint:style": "vue-cli-service lint:style --no-fix",
     "lint": "yarn lint:es && yarn lint:style"
   },
   "dependencies": {
@@ -26,16 +26,15 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-standard": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "add": "^2.0.6",
-    "eslint": "^6.7.2",
+    "eslint": "^7.22.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.5.4",
     "node-sass": "^4.12.0",
     "reset-css": "^5.0.1",
     "sass-loader": "^8.0.2",
@@ -79,13 +78,7 @@
     "pre-push": "yarn lint"
   },
   "lint-staged": {
-    "*.{vue,ts,js}": [
-      "yarn lint:es",
-      "git add"
-    ],
-    "*.{vue,html,css,scss}": [
-      "yarn lint:style",
-      "git add"
-    ]
+    "*.{vue,ts,js}": "yarn lint:es",
+    "*.{vue,html,css,scss}": "yarn lint:style"
   }
 }
