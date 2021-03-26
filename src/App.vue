@@ -1,19 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <SectionStart />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import SectionStart from './components/section/Start.vue'
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  components: {
+    SectionStart
+  }
 })
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>
