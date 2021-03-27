@@ -13,6 +13,7 @@ module.exports = {
         additionalData: `
 $public-path: '${publicPath}';
 @import '@/assets/style/variables';
+@import '@/assets/style/_mixins';
 `
       }
     }

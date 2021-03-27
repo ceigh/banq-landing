@@ -1,0 +1,5 @@
+@mixin gap($size: $indent) {
+  :not(:last-child) {
+    margin-right: $size;
+  }
+}

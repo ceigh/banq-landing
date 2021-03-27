@@ -65,9 +65,7 @@ header {
 
 nav,
 .actions {
-  :not(:last-child) {
-    margin-right: $indent;
-  }
+  @include gap;
 
   a {
     text-decoration: none;
