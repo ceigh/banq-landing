@@ -11,6 +11,8 @@
   </div>
 
   <div class='columns'>
+    <span class='percent'>9%</span>
+    <span class='percent'>12%</span>
   </div>
 </div>
 </template>
@@ -37,6 +39,7 @@ export default defineComponent({
 .content {
   color: $black;
   margin: 0 $indent;
+  max-width: 80%;
 
   h1 {
     font-size: 65px;
@@ -55,5 +58,22 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-size: cover;
   height: 45rem;
+  position: relative;
+
+  .percent {
+    color: $white;
+    position: absolute;
+    font-size: 5rem;
+
+    &:first-child {
+      top: 400px;
+      left: 170px;
+    }
+
+    &:last-child {
+      top: 250px;
+      left: 300px;
+    }
+  }
 }
 </style>
