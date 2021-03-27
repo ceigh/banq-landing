@@ -49,10 +49,14 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $indent;
+  padding: $indent / 1.5 $indent;
+  z-index: 1;
+  background: $white;
 }
 
 .logo img {

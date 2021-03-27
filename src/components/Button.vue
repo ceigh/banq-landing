@@ -24,11 +24,11 @@ button {
   align-items: center;
   white-space: nowrap;
   border: 0;
-  border-radius: $indent-half / 2;
+  border-radius: 0.2rem + $indent-half / 2;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
-  padding: $indent-half $indent;
+  padding: $indent / 1.5 $indent;
   color: $white;
   background: $black;
   transition: background $duration;

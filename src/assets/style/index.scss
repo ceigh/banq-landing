@@ -5,9 +5,8 @@ html {
   font-family: SFUIDisplay, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
+  background: $white;
+  color: $black;
   overflow-x: hidden;
 }
 
