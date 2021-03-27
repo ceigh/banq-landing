@@ -8,6 +8,7 @@ html {
   background: $white;
   color: $black;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 #app {
