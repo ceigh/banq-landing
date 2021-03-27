@@ -17,6 +17,9 @@
       <p v-if='i === 3'>Выбрать оптимальное предложение</p>
     </div>
   </div>
+
+  <img class='bracket' src='@/assets/img/section/bracket.svg'
+    alt='bracket' />
 </div>
 </template>
 
@@ -35,6 +38,7 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
+$indent-2: 2 * $indent;
 $indent-4: 4 * $indent;
 $gray: lighten($black, 66%);
 
@@ -90,7 +94,7 @@ h2 {
 
   display: flex;
   justify-content: space-between;
-  padding: 2 * $indent;
+  padding: $indent-2 $indent-2 $indent-half;
 }
 
 .card {
@@ -109,5 +113,11 @@ h2 {
       color: $white;
     }
   }
+}
+
+.bracket {
+  display: block;
+  max-width: 80%;
+  margin: auto;
 }
 </style>
