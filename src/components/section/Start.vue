@@ -1,3 +1,59 @@
 <template>
-<div />
+<div class='container'>
+  <div class='content'>
+    <h1>Рефинансирование кредитов, выгодное вам, а не банкам</h1>
+    <p>
+      Banq - это сервис, который бесплатно берет на себя все:
+      от анализа вашей ситуации до общения с банками. Вы получаете
+      лучшие условия в кратчайшие сроки.
+    </p>
+    <Button text='Узнать подробнее'/>
+  </div>
+
+  <div class='columns'>
+  </div>
+</div>
 </template>
+
+<script lang='ts'>
+import { defineComponent } from 'vue'
+
+import Button from '@/components/Button.vue'
+
+export default defineComponent({
+  components: {
+    Button
+  }
+})
+</script>
+
+<style lang='scss' scoped>
+.container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+}
+
+.content {
+  color: $black;
+  margin: 0 $indent;
+
+  h1 {
+    font-size: 65px;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 24px;
+    margin: $indent 0;
+  }
+}
+
+.columns {
+  background: url('~@/assets/img/section/start/1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+}
+</style>

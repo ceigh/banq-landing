@@ -7,6 +7,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+#app {
+  margin: auto;
+  max-width: calc(#{$xl} - #{2 * $indent});
+}
+
 .material-icons {
   &.md-18 {
     font-size: 18px;

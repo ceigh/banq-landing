@@ -1,20 +1,18 @@
 <template>
 <header>
-  <div class='content'>
-    <a href='/'>
-      <img class='logo' src='@/assets/img/logo.svg' alt='banq' />
-    </a>
+  <a class='logo' href='/'>
+    <img src='@/assets/img/logo.svg' alt='banq' />
+  </a>
 
-    <nav>
-      <a href='#'>Как делают все</a>
-      <a href='#'>Как нужно делать</a>
-      <a href='#'>Калькулятор</a>
-    </nav>
+  <nav>
+    <a href='#'>Как делают все</a>
+    <a href='#'>Как нужно делать</a>
+    <a href='#'>Калькулятор</a>
+  </nav>
 
-    <div class='actions'>
-      <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-      <Button text='перезвоните мне' @click='callMeBack' />
-    </div>
+  <div class='actions'>
+    <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
+    <Button text='перезвоните мне' @click='callMeBack' />
   </div>
 </header>
 </template>
@@ -51,18 +49,13 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 header {
-  padding: $indent;
-}
-
-.content {
-  margin: auto;
-  max-width: calc(#{$xl} - #{2 * $indent});
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: $indent;
 }
 
-.logo {
+.logo img {
   width: 10rem;
 }
 
