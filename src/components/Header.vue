@@ -2,7 +2,7 @@
 <header>
   <div class='content'>
     <a href='/'>
-      <img src='@/assets/img/logo.svg' alt='banq' />
+      <img class='logo' src='@/assets/img/logo.svg' alt='banq' />
     </a>
 
     <nav>
@@ -62,10 +62,14 @@ header {
   align-items: center;
 }
 
+.logo {
+  width: 10rem;
+}
+
 nav,
 .actions {
   :not(:last-child) {
-    margin-right: $indent-half;
+    margin-right: $indent;
   }
 
   a {
