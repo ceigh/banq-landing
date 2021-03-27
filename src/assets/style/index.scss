@@ -12,7 +12,7 @@ html {
 
 #app {
   margin: auto;
-  max-width: calc(#{$xl} - #{2 * $indent});
+  max-width: calc(#{$xl} - #{4 * $indent});
 }
 
 .material-icons {

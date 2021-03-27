@@ -54,7 +54,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $indent / 1.5 $indent;
+  padding: $indent / 1.5 $indent * 2;
   z-index: 1;
   background: $white;
 }

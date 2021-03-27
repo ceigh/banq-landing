@@ -28,7 +28,7 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
-  padding: $indent / 1.5 $indent;
+  padding: $indent-half $indent;
   color: $white;
   background: $black;
   transition: background $duration;
