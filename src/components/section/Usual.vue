@@ -1,5 +1,5 @@
 <template>
-<div class='container'>
+<div id='usual' class='container'>
   <h2>Обычная схема рефинансирования:</h2>
 
   <div class='steps'>
@@ -54,7 +54,7 @@ $gray: lighten($black, 66%);
 $blue: #13438e;
 
 .container {
-  padding: 0 $indent;
+  padding: $indent-4 $indent 0;
 }
 
 h2 {
@@ -62,7 +62,7 @@ h2 {
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
-  margin: $indent-4 auto;
+  margin: 0 auto $indent-4;
   max-width: 60%;
 }
 
