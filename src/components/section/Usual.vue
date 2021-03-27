@@ -20,6 +20,16 @@
 
   <img class='bracket' src='@/assets/img/section/bracket.svg'
     alt='bracket' />
+
+  <div class='but'>
+    <p class='but-heading'>
+      НО! Чтобы получить самую низкую ставку, нужно:
+    </p>
+    <p class='but-text'>
+      Повторить все то же самое через 3-6 месяцев,
+      чтобы еще раз снизить ставку по кредиту.
+    </p>
+  </div>
 </div>
 </template>
 
@@ -41,6 +51,7 @@ export default defineComponent({
 $indent-2: 2 * $indent;
 $indent-4: 4 * $indent;
 $gray: lighten($black, 66%);
+$blue: #13438e;
 
 .container {
   padding: 0 $indent;
@@ -85,7 +96,7 @@ h2 {
 
   &-number {
     font-size: 5rem;
-    color: #13438e;
+    color: $blue;
   }
 }
 
@@ -119,5 +130,23 @@ h2 {
   display: block;
   max-width: 80%;
   margin: auto;
+}
+
+.but {
+  max-width: 50%;
+  margin: $indent auto 0;
+  font-weight: bold;
+  text-align: center;
+
+  &-heading {
+    color: $blue;
+    line-height: 1.2;
+    font-size: 5rem;
+    margin-bottom: $indent;
+  }
+
+  &-text {
+    font-size: 1.5rem;
+  }
 }
 </style>
