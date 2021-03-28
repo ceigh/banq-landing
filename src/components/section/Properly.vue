@@ -27,16 +27,16 @@
 import { defineComponent } from 'vue'
 
 const blocks: HTMLElement[] = []
+const progresses: HTMLElement[] = []
 
 function updateProgress (): void {
   const multiplier = 1.5 // to speed up progress
-  blocks.forEach(b => {
+  blocks.forEach((b, i) => {
     const { top, height } = b.getBoundingClientRect()
     let percent = -100 * multiplier * top / height
     if (percent < 0) percent = 0
     else if (percent > 100) percent = 100
-    b.querySelector('.progress')
-      .setAttribute('style', `--percent: ${percent}%`)
+    progresses[i].setAttribute('style', `--percent: ${percent}%`)
   })
 }
 
@@ -72,7 +72,9 @@ export default defineComponent({
   mounted () {
     const { $refs } = this
     for (const [k, v] of Object.entries($refs)) {
-      if (/^block-\d$/.test(k)) blocks.push(v)
+      if (!/^block-\d$/.test(k)) return
+      blocks.push(v)
+      progresses.push(v.querySelector('.progress'))
     }
     document.addEventListener('scroll', updateProgress)
   },
@@ -159,7 +161,7 @@ export default defineComponent({
   &::after {
     content: '';
     display: block;
-    background: $gray;
+    background: lighten($gray, 33%);
     height: inherit;
     width: var(--percent);
   }
