@@ -24,7 +24,7 @@ button {
   align-items: center;
   white-space: nowrap;
   border: 0;
-  border-radius: 0.2rem + $indent-half / 2;
+  border-radius: 0.2rem + 1/2 * $indent-half;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;

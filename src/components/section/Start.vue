@@ -43,7 +43,7 @@ export default defineComponent({
 }
 
 .content {
-  margin: 0 $indent 0 $indent * 2;
+  margin: 0 $indent 0 $indent-2;
   max-width: 80%;
 
   h1 {

@@ -6,7 +6,7 @@
 
   <nav>
     <a href='#usual'>Как делают все</a>
-    <a href='#'>Как нужно делать</a>
+    <a href='#properly'>Как нужно делать</a>
     <a href='#'>Калькулятор</a>
   </nav>
 
@@ -54,10 +54,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $indent / 1.5 $indent * 2;
+  padding: 1/1.5 * $indent $indent-2;
   z-index: 1;
   background: $white;
-  box-shadow: 0 $indent-half 2 * $indent rgba($black, 0.1);
+  box-shadow: 0 1rem 4rem rgba($black, 0.1);
 }
 
 .logo img {

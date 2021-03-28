@@ -1,7 +1,10 @@
 @import 'colors';
 
 $indent: 2rem;
-$indent-half: $indent / 2;
+$indent-half: 1/2 * $indent;
+$indent-2: 2 * $indent;
+$indent-3: 3 * $indent;
+$indent-4: 4 * $indent;
 
 $xl: 1920px;
 

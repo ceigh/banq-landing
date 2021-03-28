@@ -48,8 +48,6 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-$indent-2: 2 * $indent;
-$indent-4: 4 * $indent;
 $gray: lighten($black, 66%);
 $blue: #13438e;
 
