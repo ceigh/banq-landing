@@ -7,11 +7,13 @@
     <p class='heading'>Поэтому Banq работает так:</p>
 
     <div class='blocks'>
-      <div class='block' v-for='(block, i) in blocks' :key='i'>
+      <div class='block' v-for='(block, i) in blocks' :key='i'
+        :ref='`block-${i}`'>
         <img :src='require(`@/assets/img/section/properly/${i + 1}.png`)'
-           alt='photo' loading='lazy' />
+          alt='photo' loading='lazy' />
 
         <div class='block-info'>
+          <div class='progress' />
           <p class='block-title'>{{ block.title }}</p>
           <p class='block-text'>{{ block.text }}</p>
         </div>
@@ -23,6 +25,20 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+
+const blocks: HTMLElement[] = []
+
+function updateProgress (): void {
+  const multiplier = 1.5 // to speed up progress
+  blocks.forEach(b => {
+    const { top, height } = b.getBoundingClientRect()
+    let percent = -100 * multiplier * top / height
+    if (percent < 0) percent = 0
+    else if (percent > 100) percent = 100
+    b.querySelector('.progress')
+      .setAttribute('style', `--percent: ${percent}%`)
+  })
+}
 
 export default defineComponent({
   data () {
@@ -51,6 +67,17 @@ export default defineComponent({
         }
       ]
     }
+  },
+
+  mounted () {
+    const { $refs } = this
+    for (const [k, v] of Object.entries($refs)) {
+      if (/^block-\d$/.test(k)) blocks.push(v)
+    }
+    document.addEventListener('scroll', updateProgress)
+  },
+  unmounted () {
+    document.removeEventListener('scroll', updateProgress)
   }
 })
 </script>
@@ -82,7 +109,7 @@ export default defineComponent({
   font-size: 5rem;
   line-height: 1.2;
   font-weight: bold;
-  color: darken($white, 33%);
+  color: $gray;
   margin-bottom: $indent-3;
 }
 
@@ -119,6 +146,22 @@ export default defineComponent({
 
   &-text {
     font-size: 1.5rem;
+  }
+}
+
+.progress {
+  --percent: 0%;
+
+  height: 0.5rem;
+  background: darken($gray, 33%);
+  margin-bottom: $indent;
+
+  &::after {
+    content: '';
+    display: block;
+    background: $gray;
+    height: inherit;
+    width: var(--percent);
   }
 }
 </style>

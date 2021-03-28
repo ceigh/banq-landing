@@ -48,7 +48,6 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-$gray: lighten($black, 66%);
 $blue: #13438e;
 
 .container {
