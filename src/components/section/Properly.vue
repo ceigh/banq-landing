@@ -137,18 +137,19 @@ export default defineComponent({
     margin-bottom: 6 * $indent;
   }
 
-  $img-height: 35rem;
+  $top: 22%;
 
   img {
-    height: $img-height;
+    height: 70vh;
+    max-height: 50rem;
     position: sticky;
-    top: 5.5 * $indent;
+    top: $top;
   }
 
   &-info {
     color: $white;
     position: sticky;
-    top: 1/2 * $img-height;
+    top: $top;
     margin-bottom: $indent-3;
   }
 
