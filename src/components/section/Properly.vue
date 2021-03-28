@@ -1,15 +1,15 @@
 <template>
-<div class='container'>
+<div id='properly' class='container'>
   <img class='arrow' src='@/assets/img/section/usual/arrow.svg'
     alt='arrow' />
 
-  <div id='properly' class='content'>
+  <div class='content'>
     <p class='heading'>Поэтому Banq работает так:</p>
 
     <div class='blocks'>
       <div class='block' v-for='(block, i) in blocks' :key='i'>
         <img :src='require(`@/assets/img/section/properly/${i + 1}.png`)'
-           alt='photo' />
+           alt='photo' loading='lazy' />
 
         <div class='block-info'>
           <p class='block-title'>{{ block.title }}</p>
@@ -90,6 +90,7 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
+  height: 150vh;
 
   &:not(:last-child) {
     margin-bottom: 6 * $indent;
@@ -99,6 +100,8 @@ export default defineComponent({
 
   img {
     height: $img-height;
+    position: sticky;
+    top: 5.5 * $indent;
   }
 
   &-info {
