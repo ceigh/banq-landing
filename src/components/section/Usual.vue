@@ -18,11 +18,10 @@
     </div>
   </div>
 
-  <img class='bracket' src='@/assets/img/section/bracket.svg'
-    alt='bracket' />
+  <Bracket />
 
   <div class='but'>
-    <p class='but-heading'>
+    <p class='blue-heading'>
       НО! Чтобы получить самую низкую ставку, нужно:
     </p>
     <p class='but-text'>
@@ -36,7 +35,13 @@
 <script lang='ts'>
 import { defineComponent } from 'vue'
 
+import Bracket from './Bracket.vue'
+
 export default defineComponent({
+  components: {
+    Bracket
+  },
+
   methods: {
     getCardBgStyle (i: number): string {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -48,8 +53,6 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-$blue: #13438e;
-
 .container {
   padding: $indent-4 $indent 0;
 }
@@ -123,27 +126,13 @@ h2 {
   }
 }
 
-.bracket {
-  display: block;
-  max-width: 80%;
-  margin: auto;
-}
-
 .but {
   max-width: 50%;
   margin: $indent auto 0;
-  font-weight: bold;
-  text-align: center;
-
-  &-heading {
-    color: $blue;
-    line-height: 1.2;
-    font-size: 5rem;
-    margin-bottom: $indent;
-  }
 
   &-text {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 }
 </style>

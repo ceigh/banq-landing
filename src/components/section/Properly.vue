@@ -20,11 +20,19 @@
       </div>
     </div>
   </div>
+
+  <Bracket />
+
+  <p class='blue-heading rate'>
+    Вы получаете самую низкую ставку из всех возможных
+  </p>
 </div>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+
+import Bracket from './Bracket.vue'
 
 const blocks: HTMLElement[] = []
 const progresses: HTMLElement[] = []
@@ -41,6 +49,10 @@ function updateProgress (): void {
 }
 
 export default defineComponent({
+  components: {
+    Bracket
+  },
+
   data () {
     return {
       blocks: [
@@ -87,7 +99,7 @@ export default defineComponent({
 <style lang='scss' scoped>
 .container {
   position: relative;
-  margin-top: $indent-half;
+  margin-top: $indent;
   padding-top: $indent-2;
 }
 
@@ -165,5 +177,11 @@ export default defineComponent({
     height: inherit;
     width: var(--percent);
   }
+}
+
+.rate {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

@@ -21,3 +21,11 @@ html {
     font-size: 18px;
   }
 }
+
+.blue-heading {
+  color: $blue;
+  line-height: 1.2;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: $indent;
+}
