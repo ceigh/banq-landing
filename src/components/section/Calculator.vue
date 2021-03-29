@@ -92,15 +92,15 @@ import { defineComponent } from 'vue'
 type Changable = 'rate' | 'payment'
 type Limits = Record<Changable, number>
 
-const steps: Limits = { rate: 1, payment: 5000 }
-const maxs: Limits = Object.fromEntries(Object.entries(steps)
-  .map(e => [e[0], 100 * e[1]]))
+const mins: Limits = { rate: 5, payment: 5_000 }
+const steps: Limits = { rate: 1, payment: mins.payment }
+const maxs: Limits = { rate: 99, payment: 100 * steps.payment }
 
 export default defineComponent({
   data () {
     return {
       rate: 10,
-      payment: 50000,
+      payment: 10 * steps.payment,
       sum: 1_500_000,
       years: 2
     }
@@ -121,15 +121,16 @@ export default defineComponent({
     },
 
     dec (key: Changable): void {
-      const step = steps[key]
-      if (step === this[key]) return
-      this[key] -= step
+      const curr = this[key]
+      const upd = curr - steps[key]
+      const min = mins[key]
+      this[key] = upd < min ? min : upd
     },
     inc (key: Changable): void {
-      const step = steps[key]
-      const more = this[key] + step
-      if (maxs[key] === more) return
-      this[key] += step
+      const curr = this[key]
+      const upd = curr + steps[key]
+      const max = maxs[key]
+      this[key] = upd > max ? max : upd
     }
   }
 })
@@ -178,6 +179,7 @@ $dark-gray: darken($gray, 33%);
 
 .strike {
   margin-left: $indent-half;
+  text-decoration: line-through;
 }
 
 .switch {
