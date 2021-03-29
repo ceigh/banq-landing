@@ -7,7 +7,7 @@
   <nav>
     <a href='#usual'>Как делают все</a>
     <a href='#properly'>Как нужно делать</a>
-    <a href='#'>Калькулятор</a>
+    <a href='#calculator'>Калькулятор</a>
   </nav>
 
   <div class='actions'>
