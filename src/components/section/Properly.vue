@@ -82,11 +82,11 @@ export default defineComponent({
   },
 
   mounted () {
-    const { $refs } = this
-    for (const [k, v] of Object.entries($refs)) {
+    type Refs = Record<string, HTMLElement>
+    for (const [k, v] of Object.entries(this.$refs as Refs)) {
       if (!/^block-\d$/.test(k)) return
       blocks.push(v)
-      progresses.push(v.querySelector('.progress'))
+      progresses.push(v.querySelector('.progress') as HTMLElement)
     }
     document.addEventListener('scroll', updateProgress)
   },
