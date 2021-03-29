@@ -5,6 +5,7 @@
 <SectionProperly />
 <SectionCalculator />
 <SectionForm />
+<Footer />
 </template>
 
 <script lang='ts'>
@@ -16,6 +17,7 @@ import SectionUsual from './components/section/Usual.vue'
 import SectionProperly from './components/section/Properly.vue'
 import SectionCalculator from './components/section/Calculator.vue'
 import SectionForm from './components/section/Form.vue'
+import Footer from './components/Footer.vue'
 
 export default defineComponent({
   components: {
@@ -24,7 +26,8 @@ export default defineComponent({
     SectionUsual,
     SectionProperly,
     SectionCalculator,
-    SectionForm
+    SectionForm,
+    Footer
   }
 })
 </script>

@@ -34,6 +34,10 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
+a {
+  text-decoration: none;
+}
+
 button {
   display: inline-flex;
   align-items: center;
@@ -56,6 +60,10 @@ button {
 
   &:active {
     background: lighten($black, 66%);
+  }
+
+  span {
+    margin-left: 1/3 * $indent-half;
   }
 }
 </style>

@@ -11,7 +11,7 @@ export default defineComponent({
   emits: ['update:modelValue'],
 
   methods: {
-    emitUpdate (value: typeof HTMLInputElement.value): void {
+    emitUpdate (value: string): void {
       this.$emit('update:modelValue', value)
     },
     clear (): void {

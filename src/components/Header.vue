@@ -1,6 +1,6 @@
 <template>
 <header>
-  <a class='logo' href='#start'>
+  <a class='logo' href='/'>
     <img src='@/assets/img/logo.svg' alt='banq' />
   </a>
 
@@ -19,21 +19,20 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
-
 import Button from './Button.vue'
+import { getPhoneNumberHref } from '@/_'
+import { phoneNumber } from '@/const.json'
 
 export default defineComponent({
   components: { Button },
 
   data () {
-    return {
-      phoneNumber: '+7 (499) 499-27-05'
-    }
+    return { phoneNumber }
   },
 
   computed: {
     phoneNumberHref (): string {
-      return `tel:${this.phoneNumber.replace(/[^0-9]/g, '')}`
+      return getPhoneNumberHref(this.phoneNumber)
     }
   }
 })
@@ -50,7 +49,7 @@ header {
   z-index: 1;
   background: $white;
   box-shadow: $shadow;
-  // border-bottom: 0.1rem solid $black;
+  border-bottom: $border;
 }
 
 .logo img {
@@ -60,19 +59,6 @@ header {
 nav,
 .actions {
   @include gap;
-
-  a {
-    text-decoration: none;
-    color: $black;
-
-    &:hover,
-    &:focus {
-      color: lighten($black, 33%);
-    }
-
-    &:active {
-      color: lighten($black, 66%);
-    }
-  }
+  @include plain-links;
 }
 </style>

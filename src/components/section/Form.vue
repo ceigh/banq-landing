@@ -31,7 +31,10 @@ import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
 
 export default defineComponent({
-  components: { Input, Button },
+  components: {
+    Input,
+    Button
+  },
 
   data () {
     return {
@@ -52,7 +55,7 @@ export default defineComponent({
 <style lang='scss' scoped>
 .container {
   max-width: 50%;
-  margin: 0 auto $indent-4;
+  margin: 0 auto $indent-3;
   padding-top: $indent-4;
 }
 
@@ -66,9 +69,10 @@ export default defineComponent({
 
 form {
   border-radius: 1.5rem;
+  border: $border;
   background: $white;
   box-shadow: $shadow;
-  padding: $indent-3 $indent-2;
+  padding: $indent-3 $indent;
   margin: auto;
   max-width: 60%;
   text-align: center;

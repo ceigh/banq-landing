@@ -1,5 +1,5 @@
 <template>
-<div id='start' class='container'>
+<div class='container'>
   <div class='content'>
     <h1>Рефинансирование кредитов, выгодное вам, а не банкам</h1>
     <p>
@@ -19,7 +19,6 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
-
 import Button from '@/components/Button.vue'
 
 export default defineComponent({

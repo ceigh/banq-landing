@@ -3,3 +3,19 @@
     margin-right: $size;
   }
 }
+
+@mixin plain-links($color: $black) {
+  a {
+    text-decoration: none;
+    color: $color;
+
+    &:hover,
+    &:focus {
+      color: lighten($color, 33%);
+    }
+
+    &:active {
+      color: lighten($color, 66%);
+    }
+  }
+}
