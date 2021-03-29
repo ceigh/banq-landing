@@ -1,7 +1,7 @@
 <template>
 <button>
   {{ text }}
-  <span class='material-icons md-18'>north_east</span>
+  <span v-if='icon' class='material-icons md-18'>north_east</span>
 </button>
 </template>
 
@@ -13,6 +13,10 @@ export default defineComponent({
     text: {
       required: true,
       type: String as PropType<string>
+    },
+    icon: {
+      type: Boolean as PropType<boolean>,
+      default: true
     }
   }
 })
@@ -22,9 +26,10 @@ export default defineComponent({
 button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   white-space: nowrap;
   border: 0;
-  border-radius: 0.2rem + 1/2 * $indent-half;
+  border-radius: 0.7rem;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;

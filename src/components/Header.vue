@@ -57,8 +57,8 @@ header {
   padding: 1/1.5 * $indent $indent-2;
   z-index: 1;
   background: $white;
-  box-shadow: 0 1rem 4rem rgba($black, 0.1);
-  border-bottom: 0.1rem solid $black;
+  box-shadow: $shadow;
+  // border-bottom: 0.1rem solid $black;
 }
 
 .logo img {
