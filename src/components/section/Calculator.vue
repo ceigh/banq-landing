@@ -1,6 +1,6 @@
 <template>
 <div id='calculator' class='container'>
-  <div class='current'>
+  <div>
     <p class='heading'>Текущие условия</p>
 
     <div class='row'>
@@ -24,11 +24,36 @@
     </div>
   </div>
 
-  <div class='result'>
+  <div>
     <p class='heading'>Первое рефинансирование</p>
-    <div class='row'></div>
+    <div class='row'>
+      <div>
+        <p class='subheading subheading-emph'>Снизили ставку на 3 %</p>
+        <div class='switch-number-value'>
+          <span>7%</span>
+          <strike>10%</strike>
+        </div>
+      </div>
+      <div>
+        <p class='subheading'>Ежемесячный платеж</p>
+        <span class='switch-number-value'>{{ paymentSplitted }} ₽</span>
+      </div>
+    </div>
+
     <p class='heading'>Второе рефинансирование</p>
-    <div class='row'></div>
+    <div class='row'>
+      <div>
+        <p class='subheading subheading-emph'>Снизили ставку на 2 %</p>
+        <div class='switch-number-value'>
+          <span>7%</span>
+          <strike>10%</strike>
+        </div>
+      </div>
+      <div>
+        <p class='subheading'>Ежемесячный платеж</p>
+        <span class='switch-number-value'>{{ paymentSplitted }} ₽</span>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -57,6 +82,11 @@ export default defineComponent({
   padding: $indent-2 $indent-4 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: $indent-3;
+
+  > :first-child {
+    border-right: 0.1rem solid $gray;
+  }
 }
 
 .heading {
@@ -69,11 +99,21 @@ export default defineComponent({
   font-size: 0.9rem;
   color: $gray;
   margin-bottom: $indent-half;
+
+  &-emph {
+    color: $black;
+    font-weight: bold;
+  }
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: $indent-2;
+}
+
+strike {
+  margin-left: $indent-half;
 }
 
 .switch {
@@ -84,7 +124,6 @@ export default defineComponent({
     &-value {
       font-size: 1.5rem;
       font-weight: bold;
-      margin: 0 1/1.5 * $indent-half;
     }
   }
 
@@ -115,6 +154,16 @@ export default defineComponent({
       display: block;
       height: inherit;
       text-align: center;
+    }
+
+    $margin: 1/1.5 * $indent-half;
+
+    &:first-child {
+      margin-right: $margin;
+    }
+
+    &:last-child {
+      margin-left: $margin;
     }
   }
 }
