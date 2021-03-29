@@ -17,10 +17,19 @@
         <p class='subheading'>Ежемесячный платеж</p>
         <div class='switch-number'>
           <button><span>-</span></button>
-          <span class='switch-number-value'>{{ paymentSplitted }} ₽</span>
+          <span class='switch-number-value'>
+            {{ splitNum(payment) }} ₽
+          </span>
           <button><span>+</span></button>
         </div>
       </div>
+    </div>
+
+    <div class='sum'>
+      <p class='subheading'>Сумма кредита</p>
+      <div class='switch-number-value'>{{ splitNum(sum) }}</div>
+      <input type='range' v-model.number='sum'
+        min='100000' max='10000000' step='100000'/>
     </div>
 
     <div>
@@ -51,7 +60,9 @@
       </div>
       <div>
         <p class='subheading'>Ежемесячный платеж</p>
-        <span class='switch-number-value'>{{ paymentSplitted }} ₽</span>
+        <span class='switch-number-value'>
+          {{ splitNum(firstPayment) }} ₽
+        </span>
       </div>
     </div>
 
@@ -66,7 +77,9 @@
       </div>
       <div>
         <p class='subheading'>Ежемесячный платеж</p>
-        <span class='switch-number-value'>{{ paymentSplitted }} ₽</span>
+        <span class='switch-number-value'>
+          {{ splitNum(secondPayment) }} ₽
+        </span>
       </div>
     </div>
   </div>
@@ -81,13 +94,14 @@ export default defineComponent({
     return {
       rate: 18,
       payment: 62000,
+      sum: 1_300_000,
       years: 2
     }
   },
 
-  computed: {
-    paymentSplitted (): string {
-      return this.payment.toLocaleString('ru-RU')
+  methods: {
+    splitNum (num: number): string {
+      return num.toLocaleString('ru-RU')
     }
   }
 })
@@ -131,7 +145,7 @@ $dark-gray: darken($gray, 33%);
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: $indent-2;
+  margin-bottom: $indent;
 }
 
 strike {
@@ -190,6 +204,16 @@ strike {
   }
 }
 
+.sum {
+  margin-bottom: $indent;
+
+  input {
+    margin-top: $indent-half;
+    margin-bottom: 0;
+    width: 80%;
+  }
+}
+
 $light-gray: lighten($gray, 25%);
 
 .years {
@@ -200,6 +224,7 @@ $light-gray: lighten($gray, 25%);
   border-radius: 2rem;
   min-width: 3rem;
   text-align: center;
+  font-weight: bold;
   transition: background $duration;
 
   &-container {
