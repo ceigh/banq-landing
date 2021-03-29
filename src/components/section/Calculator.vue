@@ -111,13 +111,8 @@ export default defineComponent({
   },
 
   computed: {
-    // https://journal.tinkoff.ru/guide/credit-payment/#five
     payment (): number {
-      const monthRate = this.rate / 100 / 12
-      const months = 12 * this.years
-      const x = (1 + monthRate) ** months
-      const annuity = monthRate * x / (x - 1)
-      return Math.round(this.sum * annuity)
+      return this.getPayment(this.rate)
     },
 
     downedRate1 (): number {
@@ -128,10 +123,10 @@ export default defineComponent({
     },
 
     downedPayment1 (): number {
-      return this.payment
+      return this.getPayment(this.downedRate1)
     },
     downedPayment2 (): number {
-      return this.payment
+      return this.getPayment(this.downedRate2)
     }
   },
 
@@ -151,6 +146,15 @@ export default defineComponent({
       const upd = curr + steps[key]
       const max = maxs[key]
       this[key] = upd > max ? max : upd
+    },
+
+    // https://journal.tinkoff.ru/guide/credit-payment/#five
+    getPayment (rate: number): number {
+      const monthRate = rate / 100 / 12
+      const months = 12 * this.years
+      const x = (1 + monthRate) ** months
+      const annuity = monthRate * x / (x - 1)
+      return Math.round(this.sum * annuity)
     }
   }
 })
