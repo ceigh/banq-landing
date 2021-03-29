@@ -7,14 +7,16 @@
   <form @submit.prevent='send'>
     <p>Укажите ваши данные</p>
     <div class='inputs'>
-      <input type='number' min='6' max='99' step='1'
-        inputmode='numeric' placeholder='Ставка по кредиту'
+      <Input inputmode='decimal' placeholder='Ставка по кредиту'
+        :pattern='rateRgxp' minlength='1' maxlength='6'
         v-model='rate' />
 
-      <input placeholder='Имя' v-model.trim='name' />
+      <Input placeholder='Ваше имя' minlength='2' maxlength='128'
+        v-model.trim='name' />
 
-      <input type='tel' inputmode='tel' :pattern='phoneRgxp'
-        placeholder='Телефон' required v-model.trim='phone' />
+      <Input type='tel' inputmode='tel' :pattern='phoneRgxp'
+        minlength='5' maxlength='16' required v-model.trim='phone'
+        placeholder='Номер телефона *' />
 
       <Button type='submit' text='Отправить заявку' :icon='false' />
     </div>
@@ -25,10 +27,12 @@
 <script lang='ts'>
 import { defineComponent } from 'vue'
 
+import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
 
 export default defineComponent({
   components: {
+    Input,
     Button
   },
 
@@ -37,6 +41,7 @@ export default defineComponent({
       rate: '',
       name: '',
       phone: '',
+      rateRgxp: '^[0-9,.% -]+$',
       phoneRgxp: '^[0-9() +-]+$'
     }
   },
@@ -87,36 +92,6 @@ form {
 
   :not(:last-child) {
     margin-bottom: 1.5 * $indent;
-  }
-
-  input {
-    $border-width: 0.15rem;
-    $ok-border: $border-width solid $black;
-
-    border: none;
-    border-bottom: $border-width solid $gray;
-    padding: 1/1.3 * $indent-half 1.5 * $indent-half;
-    font-size: 1.2rem;
-    transition: background $duration;
-
-    &:hover {
-      background: darken($white, 10%);
-    }
-
-    &:focus {
-      background: darken($white, 10%);
-      outline: none;
-      border-bottom: $ok-border;
-    }
-
-    &:not(:placeholder-shown) {
-      border-bottom: $ok-border;
-    }
-
-    &:invalid {
-      border-bottom: $border-width solid lighten(red, 25%);
-      box-shadow: none;
-    }
   }
 }
 </style>
