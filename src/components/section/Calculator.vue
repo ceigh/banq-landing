@@ -184,7 +184,8 @@ export default defineComponent({
 $dark-gray: darken($gray, 33%);
 
 .container {
-  margin: $indent-2 auto $indent-4;
+  margin: 0 auto $indent-4;
+  padding-top: $indent-4;
   max-width: 80%;
 }
 
