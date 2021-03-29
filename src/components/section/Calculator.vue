@@ -7,20 +7,20 @@
       <div class='switch'>
         <p class='subheading'>Процентная ставка</p>
         <div class='switch-number'>
-          <button><span>-</span></button>
+          <button @click='dec("rate")'><span>-</span></button>
           <span class='switch-number-value'>{{ rate }} %</span>
-          <button><span>+</span></button>
+          <button @click='inc("rate")'><span>+</span></button>
         </div>
       </div>
 
       <div class='switch'>
         <p class='subheading'>Ежемесячный платеж</p>
         <div class='switch-number'>
-          <button><span>-</span></button>
+          <button @click='dec("payment")'><span>-</span></button>
           <span class='switch-number-value'>
             {{ splitNum(payment) }} ₽
           </span>
-          <button><span>+</span></button>
+          <button @click='inc("payment")'><span>+</span></button>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
         <p class='subheading subheading-emph'>Снизили ставку на 3 %</p>
         <div class='switch-number-value'>
           <span>7%</span>
-          <strike>10%</strike>
+          <span class='strike'>10%</span>
         </div>
       </div>
       <div>
@@ -72,7 +72,7 @@
         <p class='subheading subheading-emph'>Снизили ставку на 2 %</p>
         <div class='switch-number-value'>
           <span>7%</span>
-          <strike>10%</strike>
+          <span class='strike'>10%</span>
         </div>
       </div>
       <div>
@@ -89,19 +89,47 @@
 <script lang='ts'>
 import { defineComponent } from 'vue'
 
+type Changable = 'rate' | 'payment'
+type Limits = Record<Changable, number>
+
+const steps: Limits = { rate: 1, payment: 5000 }
+const maxs: Limits = Object.fromEntries(Object.entries(steps)
+  .map(e => [e[0], 100 * e[1]]))
+
 export default defineComponent({
   data () {
     return {
-      rate: 18,
-      payment: 62000,
-      sum: 1_300_000,
+      rate: 10,
+      payment: 50000,
+      sum: 1_500_000,
       years: 2
+    }
+  },
+
+  computed: {
+    firstPayment (): number {
+      return this.payment
+    },
+    secondPayment (): number {
+      return this.firstPayment
     }
   },
 
   methods: {
     splitNum (num: number): string {
       return num.toLocaleString('ru-RU')
+    },
+
+    dec (key: Changable): void {
+      const step = steps[key]
+      if (step === this[key]) return
+      this[key] -= step
+    },
+    inc (key: Changable): void {
+      const step = steps[key]
+      const more = this[key] + step
+      if (maxs[key] === more) return
+      this[key] += step
     }
   }
 })
@@ -148,7 +176,7 @@ $dark-gray: darken($gray, 33%);
   margin-bottom: $indent;
 }
 
-strike {
+.strike {
   margin-left: $indent-half;
 }
 
