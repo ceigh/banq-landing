@@ -1,87 +1,99 @@
 <template>
 <div id='calculator' class='container'>
-  <div>
-    <p class='heading'>Текущие условия</p>
+  <div class='content'>
+    <div>
+      <p class='heading'>Текущие условия</p>
 
-    <div class='row'>
-      <div class='switch'>
-        <p class='subheading'>Процентная ставка</p>
-        <div class='switch-number'>
-          <button @click='dec("rate")'><span>-</span></button>
-          <span class='switch-number-value'>{{ rate }} %</span>
-          <button @click='inc("rate")'><span>+</span></button>
+      <div class='row'>
+        <div class='switch'>
+          <p class='subheading'>Процентная ставка</p>
+          <div class='switch-number'>
+            <button @click='dec("rate")'><span>-</span></button>
+            <span class='switch-number-value'>{{ rate }} %</span>
+            <button @click='inc("rate")'><span>+</span></button>
+          </div>
+        </div>
+
+        <div class='switch'>
+          <p class='subheading'>Ежемесячный платеж</p>
+            <span class='switch-number-value'>
+              {{ splitNum(payment) }} ₽
+            </span>
         </div>
       </div>
 
-      <div class='switch'>
-        <p class='subheading'>Ежемесячный платеж</p>
-          <span class='switch-number-value'>
-            {{ splitNum(payment) }} ₽
-          </span>
+      <div class='sum'>
+        <p class='subheading'>Сумма кредита</p>
+        <div class='switch-number-value'>{{ splitNum(sum) }}</div>
+        <input type='range' v-model.number='sum'
+          min='10000' max='5000000' step='10000'/>
+      </div>
+
+      <div>
+        <p class='subheading'>Срок кредита</p>
+        <div class='years-container'>
+          <div class='years' :class='{ "years-active": years === i }'
+            v-for='i in 5' :key='i' @click='years = i'>
+            <span>
+              {{ i }}
+              <span v-if='i === 1'>год</span>
+              <span v-else-if='i < 5'>года</span>
+              <span v-else>лет</span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class='sum'>
-      <p class='subheading'>Сумма кредита</p>
-      <div class='switch-number-value'>{{ splitNum(sum) }}</div>
-      <input type='range' v-model.number='sum'
-        min='100000' max='10000000' step='100000'/>
-    </div>
+    <div class='result-col'>
+      <p class='heading'>Первое рефинансирование</p>
+      <div class='row'>
+        <div>
+          <p class='subheading subheading-emph'>
+            Снизили ставку на {{ downRate1 }} %
+          </p>
+          <div class='switch-number-value'>
+            <span>{{ downedRate1 }} %</span>
+            <span class='strike'>{{ rate }} %</span>
+          </div>
+        </div>
+        <div>
+          <p class='subheading'>Ежемесячный платеж</p>
+          <span class='switch-number-value'>
+            {{ splitNum(downedPayment1) }} ₽
+          </span>
+        </div>
+      </div>
 
-    <div>
-      <p class='subheading'>Срок кредита</p>
-      <div class='years-container'>
-        <div class='years' :class='{ "years-active": years === i }'
-          v-for='i in 5' :key='i' @click='years = i'>
-          <span>
-            {{ i }}
-            <span v-if='i === 1'>год</span>
-            <span v-else-if='i < 5'>года</span>
-            <span v-else>лет</span>
+      <p class='heading'>Второе рефинансирование</p>
+      <div class='row'>
+        <div>
+          <p class='subheading subheading-emph'>
+            Снизили ставку на {{ downRate2 }} %
+          </p>
+          <div class='switch-number-value'>
+            <span>{{ downedRate2 }} %</span>
+            <span class='strike'>{{ downedRate1 }} %</span>
+          </div>
+        </div>
+        <div>
+          <p class='subheading'>Ежемесячный платеж</p>
+          <span class='switch-number-value'>
+            {{ splitNum(downedPayment2) }} ₽
           </span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class='result-col'>
-    <p class='heading'>Первое рефинансирование</p>
-    <div class='row'>
-      <div>
-        <p class='subheading subheading-emph'>
-          Снизили ставку на {{ downRate1 }} %
-        </p>
-        <div class='switch-number-value'>
-          <span>{{ downedRate1 }} %</span>
-          <span class='strike'>{{ rate }} %</span>
-        </div>
-      </div>
-      <div>
-        <p class='subheading'>Ежемесячный платеж</p>
-        <span class='switch-number-value'>
-          {{ splitNum(downedPayment1) }} ₽
-        </span>
-      </div>
-    </div>
-
-    <p class='heading'>Второе рефинансирование</p>
-    <div class='row'>
-      <div>
-        <p class='subheading subheading-emph'>
-          Снизили ставку на {{ downRate2 }} %
-        </p>
-        <div class='switch-number-value'>
-          <span>{{ downedRate2 }} %</span>
-          <span class='strike'>{{ downedRate1 }} %</span>
-        </div>
-      </div>
-      <div>
-        <p class='subheading'>Ежемесячный платеж</p>
-        <span class='switch-number-value'>
-          {{ splitNum(downedPayment2) }} ₽
-        </span>
-      </div>
-    </div>
+  <div class='saving'>
+    <p class='saving-heading'>{{ splitNum(saving) }} ₽</p>
+    <p class='saving-text'>
+      Вот сколько вы сэкономите, если рефинансируете кредит два раза.
+      Банки снижают ставку, исходя из существующего процента по
+      кредиту, поэтому выгодно рефинансировать кредит несколько раз.
+      По закону вы можете рефинансировать кредит без ограничений.
+    </p>
   </div>
 </div>
 </template>
@@ -111,6 +123,10 @@ export default defineComponent({
   },
 
   computed: {
+    months (): number {
+      return 12 * this.years
+    },
+
     payment (): number {
       return this.getPayment(this.rate)
     },
@@ -127,6 +143,11 @@ export default defineComponent({
     },
     downedPayment2 (): number {
       return this.getPayment(this.downedRate2)
+    },
+
+    saving (): number {
+      const { months } = this
+      return months * (this.payment - this.downedPayment2)
     }
   },
 
@@ -151,8 +172,7 @@ export default defineComponent({
     // https://journal.tinkoff.ru/guide/credit-payment/#five
     getPayment (rate: number): number {
       const monthRate = rate / 100 / 12
-      const months = 12 * this.years
-      const x = (1 + monthRate) ** months
+      const x = (1 + monthRate) ** this.months
       const annuity = monthRate * x / (x - 1)
       return Math.round(this.sum * annuity)
     }
@@ -164,8 +184,11 @@ export default defineComponent({
 $dark-gray: darken($gray, 33%);
 
 .container {
-  margin: $indent-2 auto 0;
+  margin: $indent-2 auto $indent-4;
   max-width: 80%;
+}
+
+.content {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -300,6 +323,38 @@ $light-gray: lighten($gray, 25%);
     &:focus {
       background: $black;
     }
+  }
+}
+
+.saving {
+  text-align: center;
+  font-weight: bold;
+  margin-top: $indent-2;
+
+  &-heading {
+    font-size: 3rem;
+    margin: 0 auto 1.3 * $indent;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      background: url('~@/assets/img/section/calculator/arrow.png');
+      height: 4rem;
+      width: 7rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: rotate(130deg);
+      position: absolute;
+      left: -8.5rem;
+      top: 1rem;
+    }
+  }
+
+  &-text {
+    font-size: 1.5rem;
+    margin: auto;
+    max-width: 70%;
   }
 }
 </style>
