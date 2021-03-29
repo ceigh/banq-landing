@@ -8,13 +8,13 @@
     <p>Укажите ваши данные</p>
     <div class='inputs'>
       <Input inputmode='decimal' placeholder='Ставка по кредиту'
-        :pattern='rateRgxp' minlength='1' maxlength='6'
+        pattern='^[0-9,.% -]+$' minlength='1' maxlength='6'
         v-model='rate' />
 
       <Input placeholder='Ваше имя' minlength='2' maxlength='128'
         v-model.trim='name' />
 
-      <Input type='tel' inputmode='tel' :pattern='phoneRgxp'
+      <Input type='tel' inputmode='tel' pattern='^[0-9() +-]+$'
         minlength='5' maxlength='16' required v-model.trim='phone'
         placeholder='Номер телефона *' />
 
@@ -37,15 +37,13 @@ export default defineComponent({
     return {
       rate: '',
       name: '',
-      phone: '',
-      rateRgxp: '^[0-9,.% -]+$',
-      phoneRgxp: '^[0-9() +-]+$'
+      phone: ''
     }
   },
 
   methods: {
     send (): void {
-      // console.log('send')
+      // console.log(this.rate, this.name, this.phone)
     }
   }
 })
@@ -55,7 +53,7 @@ export default defineComponent({
 .container {
   max-width: 50%;
   margin: 0 auto $indent-4;
-  padding-top: $indent-3;
+  padding-top: $indent-4;
 }
 
 .heading {
