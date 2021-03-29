@@ -15,13 +15,9 @@
 
       <div class='switch'>
         <p class='subheading'>Ежемесячный платеж</p>
-        <div class='switch-number'>
-          <button @click='dec("payment")'><span>-</span></button>
           <span class='switch-number-value'>
             {{ splitNum(payment) }} ₽
           </span>
-          <button @click='inc("payment")'><span>+</span></button>
-        </div>
       </div>
     </div>
 
@@ -52,16 +48,18 @@
     <p class='heading'>Первое рефинансирование</p>
     <div class='row'>
       <div>
-        <p class='subheading subheading-emph'>Снизили ставку на 3 %</p>
+        <p class='subheading subheading-emph'>
+          Снизили ставку на {{ downRate1 }} %
+        </p>
         <div class='switch-number-value'>
-          <span>7%</span>
-          <span class='strike'>10%</span>
+          <span>{{ downedRate1 }} %</span>
+          <span class='strike'>{{ rate }} %</span>
         </div>
       </div>
       <div>
         <p class='subheading'>Ежемесячный платеж</p>
         <span class='switch-number-value'>
-          {{ splitNum(firstPayment) }} ₽
+          {{ splitNum(downedPayment1) }} ₽
         </span>
       </div>
     </div>
@@ -69,16 +67,18 @@
     <p class='heading'>Второе рефинансирование</p>
     <div class='row'>
       <div>
-        <p class='subheading subheading-emph'>Снизили ставку на 2 %</p>
+        <p class='subheading subheading-emph'>
+          Снизили ставку на {{ downRate2 }} %
+        </p>
         <div class='switch-number-value'>
-          <span>7%</span>
-          <span class='strike'>10%</span>
+          <span>{{ downedRate2 }} %</span>
+          <span class='strike'>{{ downedRate1 }} %</span>
         </div>
       </div>
       <div>
         <p class='subheading'>Ежемесячный платеж</p>
         <span class='switch-number-value'>
-          {{ splitNum(secondPayment) }} ₽
+          {{ splitNum(downedPayment2) }} ₽
         </span>
       </div>
     </div>
@@ -89,29 +89,49 @@
 <script lang='ts'>
 import { defineComponent } from 'vue'
 
-type Changable = 'rate' | 'payment'
+type Changable = 'rate'
 type Limits = Record<Changable, number>
 
-const mins: Limits = { rate: 5, payment: 5_000 }
-const steps: Limits = { rate: 1, payment: mins.payment }
-const maxs: Limits = { rate: 99, payment: 100 * steps.payment }
+const downRate1 = 3
+const downRate2 = 2
+
+const mins: Limits = { rate: 1 + downRate1 + downRate2 }
+const steps: Limits = { rate: 1 }
+const maxs: Limits = { rate: 99 }
 
 export default defineComponent({
   data () {
     return {
-      rate: 10,
-      payment: 10 * steps.payment,
-      sum: 1_500_000,
-      years: 2
+      rate: 18,
+      sum: 1_300_000,
+      years: 2,
+      downRate1,
+      downRate2
     }
   },
 
   computed: {
-    firstPayment (): number {
+    // https://journal.tinkoff.ru/guide/credit-payment/#five
+    payment (): number {
+      const monthRate = this.rate / 100 / 12
+      const months = 12 * this.years
+      const x = (1 + monthRate) ** months
+      const annuity = monthRate * x / (x - 1)
+      return Math.round(this.sum * annuity)
+    },
+
+    downedRate1 (): number {
+      return this.rate - downRate1
+    },
+    downedRate2 (): number {
+      return this.downedRate1 - downRate2
+    },
+
+    downedPayment1 (): number {
       return this.payment
     },
-    secondPayment (): number {
-      return this.firstPayment
+    downedPayment2 (): number {
+      return this.payment
     }
   },
 
