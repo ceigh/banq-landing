@@ -22,9 +22,24 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <p class='subheading'>Срок кредита</p>
+      <div class='years-container'>
+        <div class='years' :class='{ "years-active": years === i }'
+          v-for='i in 5' :key='i' @click='years = i'>
+          <span>
+            {{ i }}
+            <span v-if='i === 1'>год</span>
+            <span v-else-if='i < 5'>года</span>
+            <span v-else>лет</span>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div>
+  <div class='result-col'>
     <p class='heading'>Первое рефинансирование</p>
     <div class='row'>
       <div>
@@ -65,7 +80,8 @@ export default defineComponent({
   data () {
     return {
       rate: 18,
-      payment: 62000
+      payment: 62000,
+      years: 2
     }
   },
 
@@ -78,15 +94,21 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
+$dark-gray: darken($gray, 33%);
+
 .container {
-  padding: $indent-2 $indent-4 0;
+  margin: $indent-2 auto 0;
+  max-width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $indent-3;
 
   > :first-child {
     border-right: 0.1rem solid $gray;
   }
+}
+
+.result-col {
+  text-align: right;
 }
 
 .heading {
@@ -135,7 +157,7 @@ strike {
     width: $size;
     height: $size;
     background: $white;
-    color: darken($gray, 33%);
+    color: $dark-gray;
     font-size: 1/1.5 * $size;
     font-weight: bold;
     border: 0.1rem solid $gray;
@@ -164,6 +186,40 @@ strike {
 
     &:last-child {
       margin-left: $margin;
+    }
+  }
+}
+
+$light-gray: lighten($gray, 25%);
+
+.years {
+  background: $light-gray;
+  color: $dark-gray;
+  cursor: pointer;
+  padding: $indent-half;
+  border-radius: 2rem;
+  min-width: 3rem;
+  text-align: center;
+  transition: background $duration;
+
+  &-container {
+    @include gap($indent-half);
+
+    display: flex;
+  }
+
+  &:hover,
+  &:focus {
+    background: darken($light-gray, 10%);
+  }
+
+  &-active {
+    background: $black;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      background: $black;
     }
   }
 }
