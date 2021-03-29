@@ -58,6 +58,7 @@ header {
   z-index: 1;
   background: $white;
   box-shadow: 0 1rem 4rem rgba($black, 0.1);
+  border-bottom: 0.1rem solid $black;
 }
 
 .logo img {

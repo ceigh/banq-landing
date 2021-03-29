@@ -46,41 +46,45 @@
     </div>
 
     <div class='result-col'>
-      <p class='heading'>Первое рефинансирование</p>
-      <div class='row'>
-        <div>
-          <p class='subheading subheading-emph'>
-            Снизили ставку на {{ downRate1 }} %
-          </p>
-          <div class='switch-number-value'>
-            <span>{{ downedRate1 }} %</span>
-            <span class='strike'>{{ rate }} %</span>
+      <div>
+        <p class='heading'>Первое рефинансирование</p>
+        <div class='row'>
+          <div>
+            <p class='subheading subheading-emph'>
+              Снизили ставку на {{ downRate1 }} %
+            </p>
+            <div class='switch-number-value'>
+              <span>{{ downedRate1 }} %</span>
+              <span class='strike'>{{ rate }} %</span>
+            </div>
           </div>
-        </div>
-        <div>
-          <p class='subheading'>Ежемесячный платеж</p>
-          <span class='switch-number-value'>
-            {{ splitNum(downedPayment1) }} ₽
-          </span>
+          <div>
+            <p class='subheading'>Ежемесячный платеж</p>
+            <span class='switch-number-value'>
+              {{ splitNum(downedPayment1) }} ₽
+            </span>
+          </div>
         </div>
       </div>
 
-      <p class='heading'>Второе рефинансирование</p>
-      <div class='row'>
-        <div>
-          <p class='subheading subheading-emph'>
-            Снизили ставку на {{ downRate2 }} %
-          </p>
-          <div class='switch-number-value'>
-            <span>{{ downedRate2 }} %</span>
-            <span class='strike'>{{ downedRate1 }} %</span>
+      <div>
+        <p class='heading'>Второе рефинансирование</p>
+        <div class='row'>
+          <div>
+            <p class='subheading subheading-emph'>
+              Снизили ставку на {{ downRate2 }} %
+            </p>
+            <div class='switch-number-value'>
+              <span>{{ downedRate2 }} %</span>
+              <span class='strike'>{{ downedRate1 }} %</span>
+            </div>
           </div>
-        </div>
-        <div>
-          <p class='subheading'>Ежемесячный платеж</p>
-          <span class='switch-number-value'>
-            {{ splitNum(downedPayment2) }} ₽
-          </span>
+          <div>
+            <p class='subheading'>Ежемесячный платеж</p>
+            <span class='switch-number-value'>
+              {{ splitNum(downedPayment2) }} ₽
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -184,7 +188,7 @@ export default defineComponent({
 $dark-gray: darken($gray, 33%);
 
 .container {
-  margin: 0 auto $indent-4;
+  margin: 0 auto $indent-3;
   padding-top: $indent-4;
   max-width: 80%;
 }
@@ -200,6 +204,13 @@ $dark-gray: darken($gray, 33%);
 
 .result-col {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .row {
+    margin-bottom: 0;
+  }
 }
 
 .heading {
