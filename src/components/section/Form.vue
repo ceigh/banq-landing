@@ -1,5 +1,5 @@
 <template>
-<div class='container'>
+<div id='call' class='container'>
   <p class='heading'>
     Если хотите снизить платеж по кредиту - заполните заявку
   </p>
@@ -31,10 +31,7 @@ import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
 
 export default defineComponent({
-  components: {
-    Input,
-    Button
-  },
+  components: { Input, Button },
 
   data () {
     return {
@@ -58,6 +55,7 @@ export default defineComponent({
 .container {
   max-width: 50%;
   margin: 0 auto $indent-4;
+  padding-top: $indent-3;
 }
 
 .heading {

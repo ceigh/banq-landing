@@ -1,6 +1,6 @@
 <template>
 <header>
-  <a class='logo' href='/'>
+  <a class='logo' href='#start'>
     <img src='@/assets/img/logo.svg' alt='banq' />
   </a>
 
@@ -12,7 +12,7 @@
 
   <div class='actions'>
     <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <Button text='перезвоните мне' @click='callMeBack' />
+    <Button text='перезвоните мне' href='#call' />
   </div>
 </header>
 </template>
@@ -23,9 +23,7 @@ import { defineComponent } from 'vue'
 import Button from './Button.vue'
 
 export default defineComponent({
-  components: {
-    Button
-  },
+  components: { Button },
 
   data () {
     return {
@@ -36,12 +34,6 @@ export default defineComponent({
   computed: {
     phoneNumberHref (): string {
       return `tel:${this.phoneNumber.replace(/[^0-9]/g, '')}`
-    }
-  },
-
-  methods: {
-    callMeBack (): void {
-      // console.log('callMeBack')
     }
   }
 })

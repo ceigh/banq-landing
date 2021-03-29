@@ -38,9 +38,7 @@ import { defineComponent } from 'vue'
 import Bracket from './Bracket.vue'
 
 export default defineComponent({
-  components: {
-    Bracket
-  },
+  components: { Bracket },
 
   methods: {
     getCardBgStyle (i: number): string {

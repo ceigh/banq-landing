@@ -1,5 +1,5 @@
 <template>
-<div class='container'>
+<div id='start' class='container'>
   <div class='content'>
     <h1>Рефинансирование кредитов, выгодное вам, а не банкам</h1>
     <p>
@@ -7,7 +7,7 @@
       от анализа вашей ситуации до общения с банками. Вы получаете
       лучшие условия в кратчайшие сроки.
     </p>
-    <Button text='Узнать подробнее' @click='learnMore'/>
+    <Button text='Узнать подробнее' href='#usual' />
   </div>
 
   <div class='columns'>
@@ -23,15 +23,7 @@ import { defineComponent } from 'vue'
 import Button from '@/components/Button.vue'
 
 export default defineComponent({
-  components: {
-    Button
-  },
-
-  methods: {
-    learnMore (): void {
-      // console.log('learnMore')
-    }
-  }
+  components: { Button }
 })
 </script>
 

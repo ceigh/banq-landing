@@ -49,9 +49,7 @@ function updateProgress (): void {
 }
 
 export default defineComponent({
-  components: {
-    Bracket
-  },
+  components: { Bracket },
 
   data () {
     return {

@@ -1,5 +1,12 @@
 <template>
-<button>
+<a :href='href' v-if='href'>
+  <button>
+    {{ text }}
+    <span class='material-icons md-18'>north_east</span>
+  </button>
+</a>
+
+<button v-else>
   {{ text }}
   <span v-if='icon' class='material-icons md-18'>north_east</span>
 </button>
@@ -13,6 +20,10 @@ export default defineComponent({
     text: {
       required: true,
       type: String as PropType<string>
+    },
+    href: {
+      type: String as PropType<string>,
+      default: ''
     },
     icon: {
       type: Boolean as PropType<boolean>,
