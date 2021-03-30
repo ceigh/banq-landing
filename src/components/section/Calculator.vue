@@ -91,7 +91,9 @@
   </div>
 
   <div class='saving'>
-    <p class='saving-heading'>{{ splitNum(saving) }} ₽</p>
+    <span class='saving-heading'>
+      <AnimatedInt :value='saving' /> ₽
+    </span>
     <p class='saving-text'>
       Вот сколько вы сэкономите, если рефинансируете кредит два раза.
       Банки снижают ставку, исходя из существующего процента по
@@ -104,6 +106,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import AnimatedInt from '@/components/AnimatedInt.vue'
 
 type Changable = 'rate'
 type Limits = Record<Changable, number>
@@ -116,6 +119,8 @@ const steps: Limits = { rate: 1 }
 const maxs: Limits = { rate: 99 }
 
 export default defineComponent({
+  components: { AnimatedInt },
+
   data () {
     return {
       rate: 18,
