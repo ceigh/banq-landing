@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "faca40e03571f8762c90",
-    "url": "/banq-landing/css/app.e09184e6.css"
+    "revision": "f9b79fb24bff9f2e1dc7",
+    "url": "/banq-landing/css/app.0c0c1f62.css"
   },
   {
     "revision": "0c8ea4237f9913f26ccf9b914497674f",
@@ -56,16 +56,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/banq-landing/img/logo.76e9de19.svg"
   },
   {
-    "revision": "750709fc8c51da9b4543318c280e5748",
+    "revision": "5deb198ee19e9b8aff6385499475c631",
     "url": "/banq-landing/index.html"
   },
   {
-    "revision": "faca40e03571f8762c90",
-    "url": "/banq-landing/js/app.57bbabf3.js"
+    "revision": "f9b79fb24bff9f2e1dc7",
+    "url": "/banq-landing/js/app.cc2f57bc.js"
   },
   {
-    "revision": "c9ea9b43e7b5fed67b70",
-    "url": "/banq-landing/js/chunk-vendors.09a77241.js"
+    "revision": "2f002eceb9262e6ddf2d",
+    "url": "/banq-landing/js/chunk-vendors.51f6344b.js"
   },
   {
     "revision": "4cd749ccb3bb19259406acb9d6329c06",
