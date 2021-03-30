@@ -41,7 +41,7 @@ export default defineComponent({
   },
 
   methods: {
-    tween (startValue, endValue) {
+    tween (startValue: number, endValue: number) {
       new Tween.Tween({ tweeningValue: startValue })
         .to({ tweeningValue: endValue }, 200)
         .onUpdate(({ tweeningValue }) => {
