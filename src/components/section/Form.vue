@@ -5,6 +5,8 @@
   </p>
 
   <form @submit.prevent='send'>
+    <div v-show='isLoading' class='overlay' />
+
     <p>Укажите ваши данные</p>
     <div class='inputs'>
       <Input inputmode='decimal' placeholder='Ставка по кредиту'
@@ -19,6 +21,9 @@
         placeholder='Номер телефона *' />
 
       <Button type='submit' text='Отправить заявку' :icon='false' />
+
+      <span class='success' v-if='isSuccess'>Заявка была отправлена</span>
+      <span class='error' v-if='error'>{{ error }}</span>
     </div>
   </form>
 </div>
@@ -26,6 +31,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import { send } from 'emailjs-com'
 
 import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
@@ -40,13 +46,32 @@ export default defineComponent({
     return {
       rate: '',
       name: '',
-      phone: ''
+      phone: '',
+      error: '',
+      isLoading: false,
+      isSuccess: false
     }
   },
 
   methods: {
-    send (): void {
-      // console.log(this.rate, this.name, this.phone)
+    async send (): Promise<void> {
+      this.error = ''
+      this.isSuccess = false
+
+      const id = process.env.VUE_APP_EMAILJS_ID
+      const service = process.env.VUE_APP_EMAILJS_SERVICE
+      const template = process.env.VUE_APP_EMAILJS_TEMPLATE
+
+      const { rate, name, phone } = this
+
+      this.isLoading = true
+      try {
+        await send(service, template, {
+          rate, name, phone
+        }, id)
+        this.isSuccess = true
+      } catch (e) { this.error = e.message || 'Ошибка' }
+      this.isLoading = false
     }
   }
 })
@@ -57,6 +82,16 @@ export default defineComponent({
   max-width: 50%;
   margin: 0 auto $indent-3;
   padding-top: $indent-4;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($white, 0.9);
+  border-radius: inherit;
 }
 
 .heading {
@@ -76,6 +111,7 @@ form {
   margin: auto;
   max-width: 60%;
   text-align: center;
+  position: relative;
 
   p {
     font-size: 2rem;
@@ -92,6 +128,14 @@ form {
 
   :not(:last-child) {
     margin-bottom: 1.5 * $indent;
+  }
+
+  .success {
+    color: lighten(green, 10%);
+  }
+
+  .error {
+    color: lighten(red, 25%);
   }
 }
 </style>
