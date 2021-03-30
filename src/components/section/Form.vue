@@ -31,10 +31,12 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
-import { send } from 'emailjs-com'
+import emailjs from 'emailjs-com'
 
 import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
+
+emailjs.init(process.env.VUE_APP_EMAILJS_ID)
 
 export default defineComponent({
   components: {
@@ -58,7 +60,6 @@ export default defineComponent({
       this.error = ''
       this.isSuccess = false
 
-      const id = process.env.VUE_APP_EMAILJS_ID
       const service = process.env.VUE_APP_EMAILJS_SERVICE
       const template = process.env.VUE_APP_EMAILJS_TEMPLATE
 
@@ -66,9 +67,9 @@ export default defineComponent({
 
       this.isLoading = true
       try {
-        await send(service, template, {
+        await emailjs.send(service, template, {
           rate, name, phone
-        }, id)
+        })
         this.isSuccess = true
       } catch (e) { this.error = e.message || 'Ошибка' }
       this.isLoading = false
