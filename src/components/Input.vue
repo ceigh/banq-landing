@@ -27,7 +27,7 @@ input {
 
   border: none;
   border-bottom: $border-width solid lighten($gray, 15%);
-  padding: 1/1.3 * $indent-half 1.5 * $indent-half;
+  padding: 1/1.3 * $indent-half $indent-half;
   font-size: 1.2rem;
   transition: background $duration;
 

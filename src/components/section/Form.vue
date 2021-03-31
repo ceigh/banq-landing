@@ -1,7 +1,7 @@
 <template>
 <div id='call' class='container'>
   <p class='heading'>
-    Если хотите снизить платеж по кредиту - заполните заявку
+    Чтобы снизить платеж по кредиту - заполните заявку
   </p>
 
   <form @submit.prevent='send'>
@@ -80,7 +80,7 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .container {
-  max-width: 50%;
+  max-width: 60%;
   margin: 0 auto $indent-3;
   padding-top: $indent-4;
 }
@@ -109,7 +109,7 @@ form {
   box-shadow: 0 1rem 4rem rgba($black, 0.1);
   padding: $indent-3 $indent;
   margin: auto;
-  max-width: 60%;
+  max-width: 80%;
   text-align: center;
   position: relative;
 
