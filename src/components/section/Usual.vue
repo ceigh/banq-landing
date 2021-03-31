@@ -12,9 +12,9 @@
   <div class='cards'>
     <div class='card' v-for='i in 3' :key='i'
       :style='getCardBgStyle(i)'>
-      <p v-if='i === 1'>Связаться с 10+ банками</p>
+      <p v-if='i === 1'>Связаться с банками</p>
       <p v-if='i === 2' class='text-white'>Запросить условия</p>
-      <p v-if='i === 3'>Выбрать оптимальное предложение</p>
+      <p v-if='i === 3'>Выбрать предложение</p>
     </div>
   </div>
 
@@ -76,9 +76,8 @@ h2 {
 
   &:not(:last-child)::after {
     content: '';
-    background: $gray;
+    border-bottom: 1px solid $gray;
     position: absolute;
-    height: 0.1rem;
     width: 550%;
     left: 250%;
     top: 50%;
