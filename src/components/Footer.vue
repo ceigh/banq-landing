@@ -1,7 +1,7 @@
 <template>
 <div class='container'>
   <div class='col-1'>
-    <a class='logo' href='/'>
+    <a class='logo' :href='publicPath'>
       <img src='@/assets/img/logo.svg' alt='banq' />
     </a>
 
@@ -18,7 +18,7 @@
     <a href='#calculator'>Калькулятор</a>
     <span>
       ©
-      <a href='/'>banq.ru</a>
+      <a :href='publicPath'>banq.ru</a>
       {{ year }}
     </span>
   </nav>
@@ -34,7 +34,8 @@ export default defineComponent({
   data () {
     return {
       phoneNumber,
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
+      publicPath: process.env.BASE_URL
     }
   },
 

@@ -1,6 +1,6 @@
 <template>
 <header :class='{ active }'>
-  <a class='logo' href='/'>
+  <a class='logo' :href='publcPath'>
     <img src='@/assets/img/logo.svg' alt='banq' />
   </a>
 
@@ -29,7 +29,8 @@ export default defineComponent({
   data () {
     return {
       phoneNumber,
-      active: false
+      active: false,
+      publcPath: process.env.BASE_URL
     }
   },
 
