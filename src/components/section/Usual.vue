@@ -86,9 +86,13 @@ h2 {
   }
 
   &-text {
+    $spacing: 0.3rem;
+
+    letter-spacing: $spacing;
+    margin-right: - $spacing;
+    margin-bottom: $indent-half;
     text-transform: uppercase;
     color: $gray;
-    margin-bottom: $indent-half;
   }
 
   &-number {
