@@ -1,5 +1,5 @@
 <template>
-<header>
+<header :class='{ active }'>
   <a class='logo' href='/'>
     <img src='@/assets/img/logo.svg' alt='banq' />
   </a>
@@ -27,12 +27,28 @@ export default defineComponent({
   components: { Button },
 
   data () {
-    return { phoneNumber }
+    return {
+      phoneNumber,
+      active: false
+    }
   },
 
   computed: {
     phoneNumberHref (): string {
       return getPhoneNumberHref(this.phoneNumber)
+    }
+  },
+
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+
+  methods: {
+    handleScroll (): void {
+      this.active = window.scrollY > 100
     }
   }
 })
@@ -49,6 +65,11 @@ header {
   width: calc(100% - #{2 * $indent-2});
   max-width: calc(#{$xl} - #{2 * $indent-4});
   z-index: 1;
+  transition: background $duration;
+
+  &.active {
+    background: $white;
+  }
 }
 
 .logo img {
