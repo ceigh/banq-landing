@@ -8,9 +8,9 @@
         <div class='switch'>
           <p class='subheading'>Процентная ставка</p>
           <div class='switch-number'>
-            <button @click='dec("rate")'><span>-</span></button>
+            <button @click='dec("rate")'>-</button>
             <span class='switch-number-value'>{{ rate }} %</span>
-            <button @click='inc("rate")'><span>+</span></button>
+            <button @click='inc("rate")'>+</button>
           </div>
         </div>
 
@@ -202,13 +202,19 @@ $dark-gray: darken($gray, 33%);
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  $padding: $indent-4;
+
   > :first-child {
     border-right: 0.1rem solid $gray;
+    padding-right: $padding;
+  }
+
+  > :last-child {
+    padding-left: $padding;
   }
 }
 
 .result-col {
-  text-align: right;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -261,14 +267,14 @@ $dark-gray: darken($gray, 33%);
     $size: 1.5rem;
 
     cursor: pointer;
-    padding: 0;
+    padding: 0 0 5px;
     width: $size;
     height: $size;
     background: $white;
     color: $dark-gray;
     font-size: 1/1.5 * $size;
     font-weight: bold;
-    border: 0.1rem solid $gray;
+    border: 1px solid $gray;
     border-radius: 100%;
 
     &:hover,
@@ -278,12 +284,6 @@ $dark-gray: darken($gray, 33%);
 
     &:active {
       opacity: 0.5;
-    }
-
-    span {
-      display: block;
-      height: inherit;
-      text-align: center;
     }
 
     $margin: 1/1.5 * $indent-half;
@@ -304,7 +304,7 @@ $dark-gray: darken($gray, 33%);
   input {
     margin-top: $indent-half;
     margin-bottom: 0;
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -322,9 +322,8 @@ $light-gray: lighten($gray, 25%);
   transition: background $duration;
 
   &-container {
-    @include gap($indent-half);
-
     display: flex;
+    justify-content: space-between;
   }
 
   &:hover,

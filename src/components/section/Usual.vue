@@ -127,7 +127,7 @@ h2 {
 }
 
 .but {
-  max-width: 50%;
+  max-width: 45%;
   margin: $indent auto 0;
 
   &-text {

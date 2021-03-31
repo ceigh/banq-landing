@@ -104,8 +104,7 @@ export default defineComponent({
 .arrow {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 40%;
   width: $indent-3;
   // to contrast on content bg
   mix-blend-mode: difference;
