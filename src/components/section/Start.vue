@@ -7,7 +7,7 @@
       от анализа вашей ситуации до общения с банками. Вы получаете
       лучшие условия в кратчайшие сроки.
     </p>
-    <Button text='Узнать подробнее' href='#usual' />
+    <Button text='подробнее' href='#usual' />
   </div>
 
   <div class='columns'>
@@ -52,7 +52,7 @@ export default defineComponent({
 .columns {
   background: url('~@/assets/img/section/start/1.png');
   background-size: cover;
-  height: 45rem;
+  height: 50rem;
   position: relative;
 
   .percent {
@@ -61,13 +61,13 @@ export default defineComponent({
     font-size: 5rem;
 
     &:first-child {
-      top: 400px;
-      left: 170px;
+      top: 450px;
+      left: 200px;
     }
 
     &:last-child {
-      top: 250px;
-      left: 300px;
+      top: 300px;
+      left: 350px;
     }
   }
 }

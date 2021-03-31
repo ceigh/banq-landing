@@ -20,7 +20,7 @@
         minlength='5' maxlength='16' required v-model.trim='phone'
         placeholder='Номер телефона *' />
 
-      <Button type='submit' text='Отправить заявку' :icon='false' />
+      <Button type='submit' text='отправить заявку' :icon='false' />
 
       <span class='success' v-if='isSuccess'>Заявка была отправлена</span>
       <span class='error' v-if='error'>{{ error }}</span>
@@ -105,9 +105,8 @@ export default defineComponent({
 
 form {
   border-radius: 1.5rem;
-  border: $border;
   background: $white;
-  box-shadow: $shadow;
+  box-shadow: 0 1rem 4rem rgba($black, 0.1);
   padding: $indent-3 $indent;
   margin: auto;
   max-width: 60%;

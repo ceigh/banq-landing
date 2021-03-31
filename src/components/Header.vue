@@ -12,7 +12,7 @@
 
   <div class='actions'>
     <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <Button text='перезвоните мне' href='#call' />
+    <Button text='перезвоните мне' href='#call' white />
   </div>
 </header>
 </template>
@@ -40,20 +40,19 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 header {
-  position: sticky;
-  top: 0;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1/1.5 * $indent $indent-2;
+  padding: 0 $indent-2;
+  height: 70px;
+  width: calc(100% - #{2 * $indent-2});
+  max-width: calc(#{$xl} - #{2 * $indent-4});
   z-index: 1;
-  background: $white;
-  box-shadow: $shadow;
-  border-bottom: $border;
 }
 
 .logo img {
-  width: 10rem;
+  width: 8rem;
 }
 
 nav,

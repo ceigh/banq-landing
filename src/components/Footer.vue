@@ -50,12 +50,10 @@ export default defineComponent({
 $dark-gray: darken($gray, 33%);
 
 .container {
-  border-top: $border;
   display: flex;
   justify-content: space-between;
   padding: $indent $indent-2;
-  background: lighten($gray, 25%);
-  box-shadow: 0 -2rem 4rem rgba($black, 0.1);
+  border-top: 1px solid $black;
 }
 
 .logo img {

@@ -1,12 +1,12 @@
 <template>
 <a :href='href' v-if='href'>
-  <button>
+  <button :class='{ white }'>
     {{ text }}
     <span class='material-icons md-18'>north_east</span>
   </button>
 </a>
 
-<button v-else>
+<button :class='{ white }' v-else>
   {{ text }}
   <span v-if='icon' class='material-icons md-18'>north_east</span>
 </button>
@@ -28,6 +28,10 @@ export default defineComponent({
     icon: {
       type: Boolean as PropType<boolean>,
       default: true
+    },
+    white: {
+      type: Boolean as PropType<boolean>,
+      default: false
     }
   }
 })
@@ -48,22 +52,29 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
-  padding: $indent-half $indent;
+  padding: 0 $indent;
+  height: 60px;
   color: $white;
   background: $black;
-  transition: background $duration;
+  transition: 0.5s ease;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: lighten($black, 33%);
-  }
-
-  &:active {
-    background: lighten($black, 66%);
   }
 
   span {
     margin-left: 1/3 * $indent-half;
+  }
+
+  &.white {
+    color: $black;
+    background: $white;
+    border: 1px solid $black;
+
+    &:hover {
+      color: $white;
+      background: $black;
+    }
   }
 }
 </style>
