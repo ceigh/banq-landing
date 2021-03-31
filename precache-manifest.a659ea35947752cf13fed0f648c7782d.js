@@ -1,15 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94679d8ed7fa8942626c",
-    "url": "/banq-landing/css/app.0c0c1f62.css"
+    "revision": "d246fd109f7336183b05",
+    "url": "/banq-landing/css/app.1b4ac000.css"
   },
   {
-    "revision": "0c8ea4237f9913f26ccf9b914497674f",
-    "url": "/banq-landing/fonts/SFUIDisplay-bold.woff"
+    "revision": "ee37db5bd5c74ed59dc9a81f118302f6",
+    "url": "/banq-landing/fonts/SFUIDisplay-Regular.eot"
   },
   {
-    "revision": "78e4a00e181a0c4e4998750a31e8dde5",
-    "url": "/banq-landing/fonts/SFUIDisplay-normal.woff"
+    "revision": "432aa8843aff19ea55b55d7e9812f549",
+    "url": "/banq-landing/fonts/SFUIDisplay-Regular.ttf"
+  },
+  {
+    "revision": "487c86cad639e3efc2bf70ff9a673263",
+    "url": "/banq-landing/fonts/SFUIDisplay-Regular.woff"
   },
   {
     "revision": "1ea7ca94eb4aea7c1987caed6b406d3f",
@@ -56,12 +60,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/banq-landing/img/logo.76e9de19.svg"
   },
   {
-    "revision": "de3ee1313b1d9b2ed9575f8d3cf1eb73",
+    "revision": "afdd18d0829eb6f34631a0b36238433c",
     "url": "/banq-landing/index.html"
   },
   {
-    "revision": "94679d8ed7fa8942626c",
-    "url": "/banq-landing/js/app.a2446e4d.js"
+    "revision": "d246fd109f7336183b05",
+    "url": "/banq-landing/js/app.58f9dd7c.js"
   },
   {
     "revision": "2f002eceb9262e6ddf2d",

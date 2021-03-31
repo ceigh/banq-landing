@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/banq-landing/precache-manifest.a3f7fe66ba742689f65fa3d827680d3e.js"
+  "/banq-landing/precache-manifest.a659ea35947752cf13fed0f648c7782d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "banq-landing"});
