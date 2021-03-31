@@ -9,7 +9,7 @@
           <p class='subheading'>Процентная ставка</p>
           <div class='switch-number'>
             <button @click='dec("rate")'>-</button>
-            <span class='switch-number-value'>{{ rate }} %</span>
+            <span class='switch-number-value'>{{ rate }}%</span>
             <button @click='inc("rate")'>+</button>
           </div>
         </div>
@@ -51,11 +51,11 @@
         <div class='row'>
           <div>
             <p class='subheading subheading-emph'>
-              Снизили ставку на {{ downRate1 }} %
+              Снизили ставку на {{ downRate1 }}%
             </p>
             <div class='switch-number-value'>
-              <span>{{ downedRate1 }} %</span>
-              <span class='strike'>{{ rate }} %</span>
+              <span>{{ downedRate1 }}%</span>
+              <span class='strike'>{{ rate }}%</span>
             </div>
           </div>
           <div>
@@ -72,11 +72,11 @@
         <div class='row'>
           <div>
             <p class='subheading subheading-emph'>
-              Снизили ставку на {{ downRate2 }} %
+              Снизили ставку на {{ downRate2 }}%
             </p>
             <div class='switch-number-value'>
-              <span>{{ downedRate2 }} %</span>
-              <span class='strike'>{{ downedRate1 }} %</span>
+              <span>{{ downedRate2 }}%</span>
+              <span class='strike'>{{ downedRate1 }}%</span>
             </div>
           </div>
           <div>
@@ -250,6 +250,8 @@ $dark-gray: darken($gray, 33%);
 .strike {
   margin-left: $indent-half;
   text-decoration: line-through;
+  // stylelint-disable-next-line property-no-unknown
+  text-decoration-thickness: 3px;
 }
 
 .switch {

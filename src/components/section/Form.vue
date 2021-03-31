@@ -22,7 +22,7 @@
 
       <Button type='submit' text='отправить заявку' :icon='false' />
 
-      <span class='success' v-if='isSuccess'>Заявка была отправлена</span>
+      <span v-if='isSuccess'>Заявка была отправлена</span>
       <span class='error' v-if='error'>{{ error }}</span>
     </div>
   </form>
@@ -106,7 +106,7 @@ export default defineComponent({
 form {
   border-radius: 1.5rem;
   background: $white;
-  box-shadow: 0 1rem 4rem rgba($black, 0.1);
+  box-shadow: 0 1rem 5rem rgba($black, 0.2);
   padding: $indent-3 $indent;
   margin: auto;
   max-width: 80%;
@@ -130,8 +130,8 @@ form {
     margin-bottom: 1.5 * $indent;
   }
 
-  .success {
-    color: lighten(green, 10%);
+  button {
+    margin-top: $indent-half;
   }
 
   .error {

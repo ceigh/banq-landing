@@ -23,7 +23,7 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 input {
-  $border-width: 0.15rem;
+  $border-width: 2px;
 
   border: none;
   border-bottom: $border-width solid lighten($gray, 15%);
@@ -46,7 +46,7 @@ input {
   }
 
   &:not(:placeholder-shown):valid {
-    border-bottom: $border-width solid lighten(green, 10%);
+    border-bottom: $border-width solid $black;
   }
 
   &:invalid {

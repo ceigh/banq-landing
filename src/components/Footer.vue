@@ -53,11 +53,10 @@ $dark-gray: darken($gray, 33%);
   display: flex;
   justify-content: space-between;
   padding: $indent $indent-2;
-  border-top: 1px solid $black;
 }
 
 .logo img {
-  width: 10rem;
+  width: 8rem;
 }
 
 .col-1 {
