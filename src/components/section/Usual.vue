@@ -150,7 +150,7 @@ h2 {
       position: absolute;
       width: 9rem;
       height: 4.5rem;
-      top: -21px;
+      top: -24px;
       left: -13px;
     }
   }
