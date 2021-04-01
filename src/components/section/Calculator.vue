@@ -50,8 +50,9 @@
         <p class='heading'>Первое рефинансирование</p>
         <div class='row'>
           <div>
-            <p class='subheading subheading-emph'>
-              Снизили ставку на {{ downRate1 }}%
+            <p class='subheading subheading-emph percents-circle'>
+              Снизили ставку
+              <span>на {{ downRate1 }}%</span>
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate1 }}%</span>
@@ -71,8 +72,9 @@
         <p class='heading'>Второе рефинансирование</p>
         <div class='row'>
           <div>
-            <p class='subheading subheading-emph'>
-              Снизили ставку на {{ downRate2 }}%
+            <p class='subheading subheading-emph percents-circle'>
+              Снизили ставку
+              <span>на {{ downRate2 }}%</span>
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate2 }}%</span>
@@ -224,6 +226,25 @@ $dark-gray: darken($gray, 33%);
   }
 }
 
+.percents-circle {
+  position: relative;
+
+  &::before {
+    content: '';
+    background: url('~@/assets/img/section/usual/circle.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 4.1rem;
+    height: 2.5rem;
+    top: -8px;
+    right: 45px;
+  }
+
+  span {
+    margin-left: 0.5rem;
+  }
+}
+
 .heading {
   font-size: 2rem;
   font-weight: bold;
@@ -232,6 +253,7 @@ $dark-gray: darken($gray, 33%);
 
 .subheading {
   font-size: 0.9rem;
+  font-weight: bold;
   color: $gray;
   margin-bottom: $indent-half;
 
@@ -249,9 +271,19 @@ $dark-gray: darken($gray, 33%);
 
 .strike {
   margin-left: $indent-half;
-  text-decoration: line-through;
-  // stylelint-disable-next-line property-no-unknown
-  text-decoration-thickness: 3px;
+  color: $gray;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 1px;
+    background: $gray;
+    top: 50%;
+    left: -7px;
+    transform: translateY(-50%);
+  }
 }
 
 .switch {
@@ -371,8 +403,10 @@ $light-gray: lighten($gray, 25%);
 
   &-text {
     font-size: 1.5rem;
+    font-weight: normal;
     margin: auto;
     max-width: 70%;
+    line-height: 1.2;
   }
 }
 </style>

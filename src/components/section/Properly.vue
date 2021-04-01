@@ -16,6 +16,9 @@
           <div class='progress' />
           <p class='block-title'>{{ block.title }}</p>
           <p class='block-text'>{{ block.text }}</p>
+          <p v-if='block.subtext' class='block-subtext'>
+            {{ block.subtext }}
+          </p>
         </div>
       </div>
     </div>
@@ -72,8 +75,10 @@ export default defineComponent({
         },
         {
           title: 'Продолжим искать еще более выгодный вариант',
-          text: `Мы снова отправим запросы на рефинансирование через
-          определенное время, чтобы вы могли повторно снизить ставку.`
+          text: `Мы будем регулярно отправлять запросы на
+          рефинансирование в банки, чтобы вы могли
+          повторно снизить ставку.`,
+          subtext: 'Это самое главное'
         }
       ]
     }
@@ -108,12 +113,12 @@ export default defineComponent({
 
 .arrow {
   position: absolute;
-  top: 0;
-  left: 40%;
-  width: $indent-3;
   // to contrast on content bg
   mix-blend-mode: difference;
   filter: invert(100%);
+  top: -12px;
+  left: 40%;
+  width: 8rem;
 }
 
 .content {
@@ -127,6 +132,7 @@ export default defineComponent({
   font-weight: bold;
   color: $gray;
   margin-bottom: $indent-3;
+  max-width: 50%;
 }
 
 .block {
@@ -156,13 +162,33 @@ export default defineComponent({
   }
 
   &-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: $indent;
   }
 
   &-text {
     font-size: 1.5rem;
+  }
+
+  &-subtext {
+    font-size: 1rem;
+    margin-top: $indent;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4rem;
+      height: 2rem;
+      background: url('~@/assets/img/section/properly/arrow.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: -28px;
+      right: -85px;
+      transform: rotate(-70deg);
+    }
   }
 }
 
