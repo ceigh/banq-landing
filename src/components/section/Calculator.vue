@@ -293,6 +293,7 @@ $dark-gray: darken($gray, 33%);
 
     &-value {
       font-size: 1.5rem;
+      font-family: SFUIDisplay-Medium, sans-serif;
       font-weight: bold;
     }
   }
@@ -403,6 +404,8 @@ $light-gray: lighten($gray, 25%);
 
   &-text {
     font-size: 1.5rem;
+    font-family: SFUIDisplay-Medium, sans-serif;
+    color: $light-black;
     font-weight: normal;
     margin: auto;
     max-width: 70%;

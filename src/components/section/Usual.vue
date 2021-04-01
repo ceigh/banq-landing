@@ -117,7 +117,7 @@ h2 {
 
   p {
     line-height: 1.2;
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     font-weight: bold;
     padding: 1.5 * $indent $indent;
 
@@ -133,8 +133,10 @@ h2 {
 
   &-text {
     font-size: 1.5rem;
+    font-family: SFUIDisplay-Medium, sans-serif;
     margin: $indent 1rem 0 9rem;
     line-height: 1.7;
+    color: $light-black;
   }
 
   &-circle {

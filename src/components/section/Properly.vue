@@ -169,10 +169,12 @@ export default defineComponent({
 
   &-text {
     font-size: 1.5rem;
+    font-family: SFUIDisplay-Medium, sans-serif;
   }
 
   &-subtext {
     font-size: 1rem;
+    font-family: SFUIDisplay-Medium, sans-serif;
     margin-top: $indent;
     position: relative;
     display: inline-block;

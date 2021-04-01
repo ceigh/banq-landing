@@ -45,8 +45,10 @@ export default defineComponent({
   }
 
   p {
+    font-family: SFUIDisplay-Medium, sans-serif;
     font-size: 1.5rem;
     margin: $indent 0;
+    color: $light-black;
   }
 }
 
