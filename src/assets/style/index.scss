@@ -2,7 +2,7 @@
 @import 'fonts';
 
 html {
-  font-family: SFUIDisplay-Regular, Helvetica, Arial, sans-serif;
+  font-family: SFUIDisplay-Medium, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $white;
@@ -17,8 +17,8 @@ html {
 }
 
 .material-icons {
-  &.md-18 {
-    font-size: 18px;
+  &.md-15 {
+    font-size: 15px;
   }
 }
 

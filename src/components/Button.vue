@@ -1,14 +1,14 @@
 <template>
 <a :href='href' v-if='href'>
-  <button :class='{ white }'>
+  <button :class='{ white, big }'>
     {{ text }}
-    <span class='material-icons md-18'>north_east</span>
+    <span v-if='icon' class='material-icons md-15'>north_east</span>
   </button>
 </a>
 
-<button :class='{ white }' v-else>
+<button :class='{ white, big }' v-else>
   {{ text }}
-  <span v-if='icon' class='material-icons md-18'>north_east</span>
+  <span v-if='icon' class='material-icons md-15'>north_east</span>
 </button>
 </template>
 
@@ -32,6 +32,10 @@ export default defineComponent({
     white: {
       type: Boolean as PropType<boolean>,
       default: false
+    },
+    big: {
+      type: Boolean as PropType<boolean>,
+      default: false
     }
   }
 })
@@ -51,12 +55,15 @@ button {
   border-radius: 0.7rem;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: bold;
   padding: 0 $indent;
-  height: 60px;
+  height: 45px;
   color: $white;
   background: $black;
   transition: 0.5s ease;
+  width: 180px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-family: 'SFUIDisplay-Medium', sans-serif;
 
   &:hover {
     background: lighten($black, 33%);
@@ -69,12 +76,15 @@ button {
   &.white {
     color: $black;
     background: $white;
-    border: 1px solid $black;
 
     &:hover {
       color: $white;
       background: $black;
     }
+  }
+
+  &.big {
+    height: 60px;
   }
 }
 </style>

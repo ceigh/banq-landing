@@ -12,7 +12,7 @@
 
   <div class='actions'>
     <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <Button text='перезвоните мне' href='#call' white />
+    <Button text='перезвоните мне' href='#call' :icon='false' white />
   </div>
 </header>
 </template>
@@ -67,6 +67,8 @@ header {
   max-width: calc(#{$xl} - #{2 * $indent-4});
   z-index: 1;
   transition: background $duration;
+  text-transform: uppercase;
+  font-size: 15px;
 
   &.active {
     background: $white;
