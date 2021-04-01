@@ -12,7 +12,8 @@
 
   <div class='actions'>
     <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <Button text='перезвоните мне' href='#call' :icon='false' white />
+    <Button text='перезвоните мне' href='#call'
+      :icon='false' white :border='active' />
   </div>
 </header>
 </template>

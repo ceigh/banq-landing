@@ -1,12 +1,12 @@
 <template>
 <a :href='href' v-if='href'>
-  <button :class='{ white, big }'>
+  <button :class='{ white, big, border }'>
     {{ text }}
     <span v-if='icon' class='material-icons md-15'>north_east</span>
   </button>
 </a>
 
-<button :class='{ white, big }' v-else>
+<button :class='{ white, big, border }' v-else>
   {{ text }}
   <span v-if='icon' class='material-icons md-15'>north_east</span>
 </button>
@@ -34,6 +34,10 @@ export default defineComponent({
       default: false
     },
     big: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    border: {
       type: Boolean as PropType<boolean>,
       default: false
     }
@@ -85,6 +89,10 @@ button {
 
   &.big {
     height: 60px;
+  }
+
+  &.border {
+    border: 1px solid $black;
   }
 }
 </style>
