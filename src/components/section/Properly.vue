@@ -99,6 +99,11 @@ export default defineComponent({
   position: relative;
   margin-top: $indent;
   padding-top: $indent-2;
+
+  .blue-heading {
+    margin-left: 28rem;
+    max-width: 60%;
+  }
 }
 
 .arrow {

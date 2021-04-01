@@ -22,10 +22,11 @@
 
   <div class='but'>
     <p class='blue-heading'>
-      НО! Чтобы получить самую низкую ставку, нужно:
+      НО! Чтобы получить самую низкую ставку нужно:
     </p>
     <p class='but-text'>
-      Повторить все то же самое через 3-6 месяцев,
+      <span class='but-circle'>Повторить</span>
+      все то же самое через 3-6 месяцев,
       чтобы еще раз снизить ставку по кредиту.
     </p>
   </div>
@@ -116,7 +117,7 @@ h2 {
 
   p {
     line-height: 1.2;
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: bold;
     padding: 1.5 * $indent $indent;
 
@@ -127,13 +128,29 @@ h2 {
 }
 
 .but {
-  max-width: 45%;
-  margin: $indent auto 0;
+  max-width: 70%;
+  margin: 0 auto;
 
   &-text {
     font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: $indent;
+    margin: $indent 1rem 0 9rem;
+    line-height: 1.7;
+  }
+
+  &-circle {
+    position: relative;
+    margin-right: 0.5rem;
+
+    &::before {
+      content: '';
+      background: url('~@/assets/img/section/usual/circle.svg');
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 9rem;
+      height: 4.5rem;
+      top: -21px;
+      left: -13px;
+    }
   }
 }
 </style>
