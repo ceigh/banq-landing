@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a17e4548edcd25c64113",
-    "url": "/banq-landing/css/app.deca62e1.css"
+    "revision": "9a94c19d2f277ce2447e",
+    "url": "/banq-landing/css/app.870b1b5b.css"
   },
   {
     "revision": "b96d5a5f9c644582b6b4d7938aaefd7b",
@@ -80,12 +80,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/banq-landing/img/logo.76e9de19.svg"
   },
   {
-    "revision": "0f13c5e9308100f3ca094aa525a49cf6",
+    "revision": "5f01ce8ad1f3a66791e888bcde733fa8",
     "url": "/banq-landing/index.html"
   },
   {
-    "revision": "a17e4548edcd25c64113",
-    "url": "/banq-landing/js/app.8b428539.js"
+    "revision": "9a94c19d2f277ce2447e",
+    "url": "/banq-landing/js/app.b9af4859.js"
   },
   {
     "revision": "3e802f91a5fd27b2521f",
