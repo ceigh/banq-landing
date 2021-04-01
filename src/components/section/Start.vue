@@ -36,7 +36,7 @@ export default defineComponent({
 
 .content {
   margin: 0 $indent-4 0 $indent-2;
-  max-width: 80%;
+  max-width: 75%;
 
   h1 {
     font-size: 4rem;

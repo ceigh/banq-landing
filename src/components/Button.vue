@@ -63,7 +63,7 @@ button {
   width: 180px;
   font-size: 12px;
   letter-spacing: 0.1em;
-  font-family: 'SFUIDisplay-Medium', sans-serif;
+  font-family: SFUIDisplay-Medium, sans-serif;
 
   &:hover {
     background: lighten($black, 33%);

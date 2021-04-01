@@ -234,10 +234,10 @@ $dark-gray: darken($gray, 33%);
     background: url('~@/assets/img/section/usual/circle.svg');
     background-repeat: no-repeat;
     position: absolute;
-    width: 4.1rem;
+    width: 4rem;
     height: 2.5rem;
-    top: -8px;
-    right: 45px;
+    top: -12px;
+    right: 52px;
   }
 
   span {

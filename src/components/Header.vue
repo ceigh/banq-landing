@@ -69,6 +69,7 @@ header {
   transition: background $duration;
   text-transform: uppercase;
   font-size: 15px;
+  font-family: SFUIDisplay-Medium, sans-serif;
 
   &.active {
     background: $white;

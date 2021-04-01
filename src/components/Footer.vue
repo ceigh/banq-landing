@@ -5,7 +5,12 @@
       <img src='@/assets/img/logo.svg' alt='banq' />
     </a>
 
-    <p>
+    <p class='desc'>
+      Banq - это не банк. Мы ищем рефинансирование по самой низкой
+      ставке среди всех предложений на рынке.
+    </p>
+
+    <p class='phone'>
       <span>Телефон офиса в Москве</span>
       <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
     </p>
@@ -63,7 +68,13 @@ $dark-gray: darken($gray, 33%);
 .col-1 {
   @include plain-links;
 
-  p {
+  .desc {
+    margin-top: $indent;
+    max-width: 50%;
+    line-height: 1.2;
+  }
+
+  .phone {
     margin-top: $indent-4;
   }
 
@@ -83,6 +94,10 @@ nav {
   p {
     font-size: 1.2rem;
     font-weight: bold;
+
+    &:first-child {
+      margin-top: 0.6rem;
+    }
   }
 
   span {
