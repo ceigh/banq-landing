@@ -103,17 +103,23 @@ export default defineComponent({
 .columns {
   background: url('~@/assets/img/section/start/1.png');
   background-size: cover;
-  height: 50rem;
+  height: 51rem;
   position: relative;
 
   @include lg {
+    min-height: 55vw;
     width: 100%;
+    background-position-y: bottom;
   }
 
   .percent {
     color: $white;
     position: absolute;
     font-size: 5rem;
+
+    @include lg {
+      display: none;
+    }
 
     &:first-child {
       top: 450px;
