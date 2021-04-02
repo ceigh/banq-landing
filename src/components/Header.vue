@@ -81,6 +81,8 @@ header {
 
   @include sm {
     --padding: #{$indent-half};
+
+    height: 50px;
   }
 
   &.active {

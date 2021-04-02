@@ -32,23 +32,71 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   align-items: center;
+
+  @include lg {
+    --padding-top: #{$indent-4};
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: var(--padding-top);
+    background: #efc1ae;
+    height: calc(100vh - var(--padding-top));
+  }
+
+  @include sm {
+    --padding-top: #{$indent-3};
+  }
 }
 
 .content {
   margin: 0 $indent-4 0 $indent-2;
   max-width: 75%;
 
+  @include lg {
+    margin: 0 $indent-2;
+    text-align: center;
+  }
+
+  @include md {
+    max-width: initial;
+    padding: 0 $indent;
+  }
+
+  @include sm {
+    padding: 0 $indent-half;
+  }
+
   h1 {
     font-size: 4rem;
     line-height: 1.2;
     font-weight: bold;
+
+    @include md {
+      font-size: 2rem;
+      line-height: 1;
+    }
   }
 
   p {
+    --margin: #{$indent};
+
     font-family: SFUIDisplay-Medium, sans-serif;
     font-size: 1.5rem;
-    margin: $indent 0;
+    margin: var(--margin) 0;
     color: $light-black;
+
+    @include sm {
+      --margin: #{$indent-half};
+
+      font-size: 1rem;
+    }
+  }
+
+  a {
+    @include lg {
+      display: none;
+    }
   }
 }
 
@@ -57,6 +105,10 @@ export default defineComponent({
   background-size: cover;
   height: 50rem;
   position: relative;
+
+  @include lg {
+    width: 100%;
+  }
 
   .percent {
     color: $white;
