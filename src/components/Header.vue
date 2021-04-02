@@ -11,7 +11,7 @@
   </nav>
 
   <div class='actions'>
-    <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
+    <a class='phone-number' :href='phoneNumberHref'>{{ phoneNumber }}</a>
     <Button text='перезвоните мне' href='#call'
       :icon='false' white :border='active' />
   </div>
@@ -58,19 +58,30 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 header {
+  --padding: #{$indent-2};
+
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 $indent-2;
+  padding: 0 var(--padding);
   height: 70px;
-  width: calc(100% - #{2 * $indent-2});
-  max-width: calc(#{$xl} - #{$indent-4});
+  width: calc(100% - 2 * var(--padding));
+  max-width: calc(#{$xl} - 4 * var(--padding));
   z-index: 1;
   transition: background $duration;
   text-transform: uppercase;
   font-size: 15px;
   font-family: SFUIDisplay-Medium, sans-serif;
+  white-space: nowrap;
+
+  @include lg {
+    --padding: #{$indent};
+  }
+
+  @include sm {
+    --padding: #{$indent-half};
+  }
 
   &.active {
     background: $white;
@@ -79,11 +90,34 @@ header {
 
 .logo img {
   width: 8rem;
+
+  @include sm {
+    width: 5rem;
+    margin-right: $indent-half / 2;
+  }
 }
 
 nav,
 .actions {
   @include gap;
   @include plain-links;
+}
+
+nav {
+  @include lg {
+    display: none;
+  }
+}
+
+.actions {
+  @include sm {
+    font-size: 0.7rem;
+  }
+
+  .phone-number {
+    @include xs {
+      display: none;
+    }
+  }
 }
 </style>

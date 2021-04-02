@@ -51,6 +51,8 @@ a {
 }
 
 button {
+  --padding: #{$indent};
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +61,7 @@ button {
   border-radius: 0.7rem;
   cursor: pointer;
   text-transform: uppercase;
-  padding: 0 $indent;
+  padding: 0 var(--padding);
   height: 45px;
   color: $white;
   background: $black;
@@ -68,6 +70,15 @@ button {
   font-size: 12px;
   letter-spacing: 0.1em;
   font-family: SFUIDisplay-Medium, sans-serif;
+
+  @include sm {
+    --padding: #{$indent-half / 2};
+
+    letter-spacing: initial;
+    width: auto;
+    height: 35px;
+    font-size: 0.7rem;
+  }
 
   &:hover {
     background: lighten($black, 33%);
