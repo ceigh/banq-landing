@@ -65,7 +65,7 @@ header {
   padding: 0 $indent-2;
   height: 70px;
   width: calc(100% - #{2 * $indent-2});
-  max-width: calc(#{$xl} - #{2 * $indent-4});
+  max-width: calc(#{$xl} - #{$indent-4});
   z-index: 1;
   transition: background $duration;
   text-transform: uppercase;
