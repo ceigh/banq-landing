@@ -176,12 +176,25 @@ h2 {
   max-width: 70%;
   margin: 0 auto;
 
+  @include lg {
+    max-width: 90%;
+  }
+
   &-text {
     font-size: 1.5rem;
     font-family: SFUIDisplay-Medium, sans-serif;
     margin: $indent 1rem 0 9rem;
     line-height: 1.7;
     color: $light-black;
+
+    @include lg {
+      font-size: 1rem;
+      margin-left: 3rem;
+    }
+
+    @include xs {
+      margin-left: 2rem;
+    }
   }
 
   &-circle {
@@ -195,8 +208,14 @@ h2 {
       position: absolute;
       width: 9rem;
       height: 4.5rem;
-      top: -24px;
-      left: -13px;
+      top: -23px;
+      left: -8px;
+
+      @include lg {
+        width: 6rem;
+        top: -14px;
+        left: -7px;
+      }
     }
   }
 }

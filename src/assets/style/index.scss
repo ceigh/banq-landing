@@ -28,4 +28,14 @@ html {
   font-size: 6rem;
   font-weight: bold;
   margin-left: 9rem;
+
+  @include lg {
+    line-height: 1;
+    font-size: 2rem;
+    margin-left: 3rem;
+  }
+
+  @include xs {
+    margin-left: 2rem;
+  }
 }
