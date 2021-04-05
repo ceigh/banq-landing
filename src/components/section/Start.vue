@@ -41,6 +41,10 @@ export default defineComponent({
     justify-content: space-between;
     padding-top: var(--padding-top);
     background: #efc1ae;
+    height: calc(150vh - var(--padding-top));
+  }
+
+  @include md {
     height: calc(100vh - var(--padding-top));
   }
 
@@ -107,7 +111,6 @@ export default defineComponent({
   position: relative;
 
   @include lg {
-    min-height: 55vw;
     width: 100%;
     background-position-y: bottom;
   }

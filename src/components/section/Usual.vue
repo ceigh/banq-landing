@@ -52,7 +52,18 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .container {
-  padding: $indent-4 $indent 0;
+  --padding-h: #{$indent};
+  --padding-top: #{$indent-4};
+
+  padding: var(--padding-top) var(--padding-h) 0;
+
+  @include lg {
+    --padding-top: #{$indent-2};
+  }
+
+  @include sm {
+    --padding-h: #{$indent-half};
+  }
 }
 
 h2 {
@@ -62,12 +73,23 @@ h2 {
   text-align: center;
   margin: 0 auto $indent-4;
   max-width: 60%;
+
+  @include lg {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0;
+    max-width: initial;
+  }
 }
 
 .steps {
   display: flex;
   justify-content: space-between;
   padding: 0 $indent-4;
+
+  @include lg {
+    display: none;
+  }
 }
 
 .step {
@@ -102,11 +124,21 @@ h2 {
 }
 
 .cards {
-  @include gap;
+  --padding-h: #{$indent-2};
+  --padding-bottom: #{$indent-half};
 
   display: flex;
   justify-content: space-between;
-  padding: $indent-2 $indent-2 $indent-half;
+  padding: $indent-2 var(--padding-h) var(--padding-bottom);
+
+  @include gap($indent-2);
+
+  @include lg {
+    --padding-h: 0;
+    --padding-bottom: 0;
+
+    overflow-x: auto;
+  }
 }
 
 .card {
@@ -115,11 +147,24 @@ h2 {
   width: 23rem;
   height: 32rem;
 
+  @include lg {
+    height: 20rem;
+    flex: 0 0 15rem;
+  }
+
   p {
+    --padding-v: #{1.5 * $indent};
+
     line-height: 1.2;
     font-size: 2.2rem;
     font-weight: bold;
-    padding: 1.5 * $indent $indent;
+    padding: var(--padding-v) $indent;
+
+    @include lg {
+      --padding-v: #{$indent};
+
+      font-size: 1.5rem;
+    }
 
     &.text-white {
       color: $white;
