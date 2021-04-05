@@ -101,13 +101,28 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .container {
+  --padding-top: #{$indent-2};
+
   position: relative;
   margin-top: $indent;
-  padding-top: $indent-2;
+  padding-top: var(--padding-top);
+
+  @include lg {
+    --padding-top: #{$indent};
+  }
 
   .blue-heading {
     margin-left: 28rem;
     max-width: 60%;
+
+    @include lg {
+      margin-left: 5rem;
+      max-width: 70%;
+    }
+
+    @include xs {
+      margin-left: 3rem;
+    }
   }
 }
 
@@ -119,11 +134,29 @@ export default defineComponent({
   top: -12px;
   left: 40%;
   width: 8rem;
+
+  @include lg {
+    width: 4rem;
+  }
 }
 
 .content {
+  --padding-h: #{$indent-2};
+  --padding-top: #{$indent-3};
+  --padding-bottom: 0;
+
   background: #0d0e2c;
-  padding: $indent-3 $indent-2 0;
+  padding: var(--padding-top) var(--padding-h) var(--padding-bottom);
+
+  @include lg {
+    --padding-h: #{$indent};
+    --padding-top: #{$indent-2};
+    --padding-bottom: #{$indent};
+  }
+
+  @include sm {
+    --padding-h: #{$indent-half};
+  }
 }
 
 .heading {
@@ -133,6 +166,13 @@ export default defineComponent({
   color: $gray;
   margin-bottom: $indent-3;
   max-width: 50%;
+
+  @include lg {
+    font-size: 3rem;
+    text-align: center;
+    max-width: initial;
+    margin-bottom: $indent-2;
+  }
 }
 
 .block {
@@ -141,8 +181,17 @@ export default defineComponent({
   align-items: flex-start;
   height: 150vh;
 
+  @include lg {
+    height: auto;
+    display: block;
+  }
+
   &:not(:last-child) {
     margin-bottom: 6 * $indent;
+
+    @include lg {
+      margin-bottom: $indent-2;
+    }
   }
 
   $top: 22%;
@@ -152,6 +201,13 @@ export default defineComponent({
     max-height: 50rem;
     position: sticky;
     top: $top;
+
+    @include lg {
+      height: auto;
+      width: 100%;
+      position: initial;
+      object-fit: contain;
+    }
   }
 
   &-info {
@@ -159,17 +215,32 @@ export default defineComponent({
     position: sticky;
     top: $top;
     margin-bottom: $indent-3;
+
+    @include lg {
+      position: initial;
+      margin-bottom: $indent;
+    }
   }
 
   &-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: $indent;
+
+    @include lg {
+      font-size: 1.5rem;
+      margin-top: $indent;
+    }
   }
 
   &-text {
     font-size: 1.5rem;
     font-family: SFUIDisplay-Medium, sans-serif;
+
+    @include lg {
+      font-size: 1rem;
+      margin-top: $indent;
+    }
   }
 
   &-subtext {
@@ -190,6 +261,10 @@ export default defineComponent({
       top: -28px;
       right: -85px;
       transform: rotate(-70deg);
+
+      @include lg {
+        top: -20px;
+      }
     }
   }
 }
@@ -200,6 +275,10 @@ export default defineComponent({
   height: 0.5rem;
   background: darken($gray, 33%);
   margin-bottom: $indent;
+
+  @include lg {
+    display: none;
+  }
 
   &::after {
     content: '';
