@@ -26,7 +26,7 @@
 
   <Bracket />
 
-  <p class='blue-heading rate'>
+  <p class='blue-heading'>
     Вы получаете самую низкую ставку из всех возможных
   </p>
 </div>
@@ -112,12 +112,16 @@ export default defineComponent({
   }
 
   .blue-heading {
-    margin-left: 28rem;
+    margin-left: 27rem;
     max-width: 60%;
 
     @include lg {
-      margin-left: 5rem;
+      margin-left: 10rem;
       max-width: 70%;
+    }
+
+    @include sm {
+      margin-left: 4rem;
     }
 
     @include xs {
@@ -288,11 +292,5 @@ export default defineComponent({
     height: inherit;
     width: var(--percent);
   }
-}
-
-.rate {
-  max-width: 40%;
-  margin-left: auto;
-  margin-right: auto;
 }
 </style>

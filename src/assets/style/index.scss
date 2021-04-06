@@ -30,11 +30,19 @@ html {
   margin-left: 9rem;
 
   @include lg {
-    font-size: 2rem;
     margin-left: 3rem;
   }
 
+  @include md {
+    font-size: 3rem;
+  }
+
+  @include sm {
+    font-size: 2.3rem;
+  }
+
   @include xs {
+    font-size: 2rem;
     margin-left: 2rem;
   }
 }
