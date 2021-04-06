@@ -257,7 +257,7 @@ $dark-gray: darken($gray, 33%);
 
   &::before {
     content: '';
-    background: url('~@/assets/img/section/usual/circle.svg');
+    background: url('~@/assets/img/section/calculator/circle.svg');
     background-repeat: no-repeat;
     position: absolute;
     top: -18%;
@@ -470,6 +470,7 @@ $light-gray: lighten($gray, 25%);
     margin: auto;
     max-width: 70%;
     line-height: 1.2;
+    padding: 0 $indent-half;
 
     @include lg {
       font-size: 1rem;

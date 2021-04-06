@@ -50,7 +50,7 @@ export default defineComponent({
 
   methods: {
     handleScroll (): void {
-      this.active = window.scrollY > 100
+      this.active = window.scrollY > 50
     }
   }
 })

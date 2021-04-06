@@ -25,7 +25,7 @@
       НО! Чтобы получить самую низкую ставку нужно:
     </p>
     <p class='but-text'>
-      <span class='but-circle'>Повторить</span>
+      <span class='but-line'>Повторить</span>
       все то же самое через 3-6 месяцев,
       чтобы еще раз снизить ставку по кредиту.
     </p>
@@ -200,25 +200,19 @@ h2 {
     }
   }
 
-  &-circle {
+  &-line {
     position: relative;
     margin-right: 0.5rem;
 
     &::before {
       content: '';
-      background: url('~@/assets/img/section/usual/circle.svg');
+      background: url('~@/assets/img/section/usual/line.svg');
+      background-size: contain;
       background-repeat: no-repeat;
       position: absolute;
-      width: 9rem;
-      height: 4.5rem;
-      top: -23px;
-      left: -8px;
-
-      @include lg {
-        width: 6rem;
-        top: -14px;
-        left: -7px;
-      }
+      width: 100%;
+      height: 100%;
+      top: 85%;
     }
   }
 }

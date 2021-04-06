@@ -13,7 +13,7 @@
         pattern='^[0-9,.% -]+$' minlength='1' maxlength='6'
         v-model='rate' />
 
-      <Input placeholder='Ваше имя' minlength='2' maxlength='128'
+      <Input placeholder='Имя' minlength='2' maxlength='128'
         v-model.trim='name' />
 
       <Input type='tel' inputmode='tel' pattern='^[0-9() +-]+$'
