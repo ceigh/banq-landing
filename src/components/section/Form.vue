@@ -83,6 +83,12 @@ export default defineComponent({
   max-width: 60%;
   margin: 0 auto $indent-3;
   padding-top: $indent-4;
+
+  @include lg {
+    padding: $indent $indent-half 0;
+    max-width: initial;
+    margin-bottom: $indent;
+  }
 }
 
 .overlay {
@@ -102,6 +108,11 @@ export default defineComponent({
   text-align: center;
   margin-bottom: $indent-2;
   line-height: 1.2;
+
+  @include lg {
+    font-size: 2rem;
+    margin-bottom: $indent;
+  }
 }
 
 form {
@@ -114,10 +125,20 @@ form {
   text-align: center;
   position: relative;
 
+  @include lg {
+    padding: 1.5 * $indent $indent-half;
+    max-width: initial;
+  }
+
   p {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: $indent-2;
+
+    @include lg {
+      font-size: 1.2rem;
+      margin-bottom: 1.5 * $indent;
+    }
   }
 }
 
@@ -127,8 +148,16 @@ form {
   max-width: 80%;
   margin: auto;
 
+  @include lg {
+    max-width: initial;
+  }
+
   :not(:last-child) {
     margin-bottom: 1.5 * $indent;
+
+    @include lg {
+      margin-bottom: $indent;
+    }
   }
 
   button {

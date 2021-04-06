@@ -31,6 +31,10 @@ input {
   font-size: 1.2rem;
   transition: background $duration;
 
+  @include lg {
+    font-size: 1rem;
+  }
+
   &:hover,
   &:focus {
     background: darken($white, 10%);

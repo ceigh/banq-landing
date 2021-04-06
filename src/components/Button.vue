@@ -100,6 +100,10 @@ button {
 
   &.big {
     height: 60px;
+
+    @include sm {
+      height: 45px;
+    }
   }
 
   &.border {
