@@ -43,8 +43,8 @@ $background: #efc1ae;
     justify-content: space-between;
     padding-top: var(--padding-top);
     background: $background;
-    max-height: 580px;
-    // max-height: calc(150vh - var(--padding-top));
+    height: calc(100vh - var(--padding-top));
+    overflow: hidden;
   }
 
   @include sm {
@@ -72,6 +72,14 @@ $background: #efc1ae;
     font-weight: bold;
 
     @include md {
+      font-size: 3rem;
+    }
+
+    @include sm {
+      font-size: 2.3rem;
+    }
+
+    @include xs {
       font-size: 2rem;
     }
   }
@@ -99,21 +107,35 @@ $background: #efc1ae;
 }
 
 .columns {
-  background: url('~@/assets/img/section/start/1.png');
+  background: url('~@/assets/img/section/start/2.png');
   background-size: cover;
   height: 51rem;
   position: relative;
 
   @include lg {
-    min-height: 220px;
+    min-height: 700px;
     width: 100%;
     background-position-y: bottom;
+  }
+
+  @include md {
+    min-height: 450px;
+    max-height: 580px;
+  }
+
+  @include sm {
+    min-height: 350px;
+  }
+
+  @include xs {
+    min-height: 220px;
   }
 
   .percent {
     color: $white;
     position: absolute;
     font-size: 5rem;
+    display: none;
 
     @include lg {
       top: unset !important;
