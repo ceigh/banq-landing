@@ -28,6 +28,8 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
+$background: #efc1ae;
+
 .container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -40,8 +42,9 @@ export default defineComponent({
     flex-direction: column;
     justify-content: space-between;
     padding-top: var(--padding-top);
-    background: #efc1ae;
-    height: calc(150vh - var(--padding-top));
+    background: $background;
+    max-height: 580px;
+    // max-height: calc(150vh - var(--padding-top));
   }
 
   @include md {
@@ -60,6 +63,8 @@ export default defineComponent({
   @include lg {
     margin: 0 $indent-2;
     text-align: center;
+    background: $background;
+    z-index: 1;
   }
 
   @include md {
@@ -105,6 +110,7 @@ export default defineComponent({
   position: relative;
 
   @include lg {
+    min-height: 220px;
     width: 100%;
     background-position-y: bottom;
   }
@@ -128,8 +134,8 @@ export default defineComponent({
       left: 200px;
 
       @include lg {
-        bottom: 35%;
-        left: 20%;
+        bottom: 30vw;
+        left: 22vw;
       }
     }
 
@@ -138,8 +144,8 @@ export default defineComponent({
       left: 350px;
 
       @include lg {
-        bottom: 58%;
-        left: 38%;
+        bottom: 50vw;
+        left: 39vw;
       }
     }
   }

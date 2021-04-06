@@ -68,7 +68,7 @@ header {
   height: 70px;
   width: calc(100vw - 2 * var(--padding));
   max-width: calc(#{$xl} - 4 * var(--padding));
-  z-index: 1;
+  z-index: 2;
   transition: background $duration;
   text-transform: uppercase;
   font-size: 15px;
