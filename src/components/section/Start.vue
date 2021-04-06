@@ -116,17 +116,32 @@ export default defineComponent({
     font-size: 5rem;
 
     @include lg {
-      display: none;
+      top: unset !important;
+      font-size: 3rem;
+    }
+
+    @include xs {
+      font-size: 2rem;
     }
 
     &:first-child {
       top: 450px;
       left: 200px;
+
+      @include lg {
+        bottom: 35%;
+        left: 20%;
+      }
     }
 
     &:last-child {
       top: 300px;
       left: 350px;
+
+      @include lg {
+        bottom: 58%;
+        left: 38%;
+      }
     }
   }
 }

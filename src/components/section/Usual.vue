@@ -140,6 +140,7 @@ h2 {
     --padding-bottom: 0;
 
     overflow-x: auto;
+    margin-bottom: $indent-half;
   }
 }
 
