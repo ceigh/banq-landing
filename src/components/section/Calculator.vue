@@ -50,9 +50,9 @@
         <p class='heading'>Первое рефинансирование</p>
         <div class='row'>
           <div>
-            <p class='subheading subheading-emph percents-circle'>
+            <p class='subheading subheading-emph'>
               Снизили ставку
-              <span>на {{ downRate1 }}%</span>
+              <span class='circle'>на {{ downRate1 }}%</span>
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate1 }}%</span>
@@ -72,9 +72,9 @@
         <p class='heading'>Второе рефинансирование</p>
         <div class='row'>
           <div>
-            <p class='subheading subheading-emph percents-circle'>
+            <p class='subheading subheading-emph'>
               Снизили ставку
-              <span>на {{ downRate2 }}%</span>
+              <span class='circle'>на {{ downRate2 }}%</span>
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate2 }}%</span>
@@ -198,21 +198,41 @@ $dark-gray: darken($gray, 33%);
   margin: 0 auto $indent-3;
   padding-top: $indent-4;
   max-width: 80%;
+
+  @include lg {
+    padding-top: $indent-2;
+    max-width: 90%;
+    margin-bottom: $indent;
+  }
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  @include lg {
+    display: block;
+  }
+
   $padding: $indent-4;
 
   > :first-child {
     border-right: 0.1rem solid $gray;
     padding-right: $padding;
+
+    @include lg {
+      border-right: none;
+      padding-right: 0;
+      margin-bottom: $indent-2;
+    }
   }
 
   > :last-child {
     padding-left: $padding;
+
+    @include lg {
+      padding-left: 0;
+    }
   }
 }
 
@@ -223,25 +243,26 @@ $dark-gray: darken($gray, 33%);
 
   .row {
     margin-bottom: 0;
+
+    @include lg {
+      margin-bottom: $indent-half;
+    }
   }
 }
 
-.percents-circle {
+.circle {
   position: relative;
+  margin-left: 0.5rem;
 
   &::before {
     content: '';
     background: url('~@/assets/img/section/usual/circle.svg');
     background-repeat: no-repeat;
     position: absolute;
-    width: 4rem;
-    height: 2.5rem;
-    top: -12px;
-    right: 52px;
-  }
-
-  span {
-    margin-left: 0.5rem;
+    top: -18%;
+    right: -20%;
+    width: 150%;
+    height: 150%;
   }
 }
 
@@ -249,6 +270,11 @@ $dark-gray: darken($gray, 33%);
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: $indent;
+
+  @include lg {
+    font-size: 1.5rem;
+    margin-bottom: $indent-half;
+  }
 }
 
 .subheading {
@@ -256,6 +282,10 @@ $dark-gray: darken($gray, 33%);
   font-weight: bold;
   color: $gray;
   margin-bottom: $indent-half;
+
+  @include sm {
+    font-size: 0.7rem;
+  }
 
   &-emph {
     color: $black;
@@ -267,6 +297,10 @@ $dark-gray: darken($gray, 33%);
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: $indent;
+
+  @include lg {
+    margin-bottom: $indent-half;
+  }
 }
 
 .strike {
@@ -336,6 +370,10 @@ $dark-gray: darken($gray, 33%);
 .sum {
   margin-bottom: $indent;
 
+  @include lg {
+    margin-bottom: $indent-half;
+  }
+
   input {
     margin-top: $indent-half;
     margin-bottom: 0;
@@ -355,6 +393,12 @@ $light-gray: lighten($gray, 25%);
   text-align: center;
   font-weight: bold;
   transition: background $duration;
+
+  @include lg {
+    min-width: auto;
+    font-size: 0.7rem;
+    padding: 0.6rem;
+  }
 
   &-container {
     display: flex;
@@ -382,11 +426,20 @@ $light-gray: lighten($gray, 25%);
   font-weight: bold;
   margin-top: $indent-2;
 
+  @include lg {
+    margin-top: 1.5 * $indent;
+  }
+
   &-heading {
     font-size: 3rem;
     margin: 0 auto 1.3 * $indent;
     position: relative;
     display: inline-block;
+
+    @include lg {
+      font-size: 2rem;
+      margin-bottom: $indent;
+    }
 
     &::after {
       content: '';
@@ -399,6 +452,13 @@ $light-gray: lighten($gray, 25%);
       position: absolute;
       left: -8.5rem;
       top: 1rem;
+
+      @include lg {
+        width: 3rem;
+        height: 2rem;
+        left: -4rem;
+        top: 0.5rem;
+      }
     }
   }
 
@@ -410,6 +470,11 @@ $light-gray: lighten($gray, 25%);
     margin: auto;
     max-width: 70%;
     line-height: 1.2;
+
+    @include lg {
+      font-size: 1rem;
+      max-width: initial;
+    }
   }
 }
 </style>

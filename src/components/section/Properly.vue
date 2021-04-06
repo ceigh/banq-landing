@@ -150,7 +150,7 @@ export default defineComponent({
 
   @include lg {
     --padding-h: #{$indent};
-    --padding-top: #{$indent-2};
+    --padding-top: #{$indent};
     --padding-bottom: #{$indent};
   }
 
@@ -168,10 +168,10 @@ export default defineComponent({
   max-width: 50%;
 
   @include lg {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     max-width: initial;
-    margin-bottom: $indent-2;
+    margin-bottom: $indent;
   }
 }
 
@@ -263,7 +263,8 @@ export default defineComponent({
       transform: rotate(-70deg);
 
       @include lg {
-        top: -20px;
+        top: -26px;
+        height: 1.5rem;
       }
     }
   }
