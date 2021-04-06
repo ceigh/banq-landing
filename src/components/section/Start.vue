@@ -73,7 +73,6 @@ export default defineComponent({
 
     @include md {
       font-size: 2rem;
-      line-height: 1;
     }
   }
 

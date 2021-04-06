@@ -57,7 +57,7 @@ button {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 0.7rem;
   cursor: pointer;
   text-transform: uppercase;
@@ -74,7 +74,6 @@ button {
   @include sm {
     --padding: #{$indent-half / 2};
 
-    letter-spacing: initial;
     width: auto;
     height: 35px;
     font-size: 0.7rem;

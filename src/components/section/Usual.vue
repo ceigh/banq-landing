@@ -76,7 +76,6 @@ h2 {
 
   @include lg {
     font-size: 2rem;
-    line-height: 1;
     margin: 0;
     max-width: initial;
   }
