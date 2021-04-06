@@ -66,7 +66,7 @@ header {
   align-items: center;
   padding: 0 var(--padding);
   height: 70px;
-  width: calc(100% - 2 * var(--padding));
+  width: calc(100vw - 2 * var(--padding));
   max-width: calc(#{$xl} - 4 * var(--padding));
   z-index: 1;
   transition: background $duration;

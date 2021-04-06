@@ -62,7 +62,7 @@ export default defineComponent({
   }
 
   @include sm {
-    --padding-h: #{$indent-half};
+    --padding-h: 0;
   }
 }
 
@@ -136,7 +136,7 @@ h2 {
 
   @include lg {
     --padding-top: #{$indent};
-    --padding-h: 0;
+    --padding-h: #{$indent-half};
     --padding-bottom: 0;
 
     overflow-x: auto;

@@ -223,7 +223,6 @@ $dark-gray: darken($gray, 33%);
     @include lg {
       padding: 0 $indent-half;
       border-right: none;
-      padding-right: 0;
       margin-bottom: $indent;
     }
   }
