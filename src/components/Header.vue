@@ -77,6 +77,9 @@ header {
 
   @include lg {
     --padding: #{$indent};
+
+    padding: $indent-half / 2 var(--padding);
+    height: calc(70px - #{$indent-half});
   }
 
   @include sm {
