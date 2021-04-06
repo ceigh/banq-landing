@@ -124,16 +124,18 @@ h2 {
 }
 
 .cards {
+  --padding-top: #{$indent-2};
   --padding-h: #{$indent-2};
   --padding-bottom: #{$indent-half};
 
   display: flex;
   justify-content: space-between;
-  padding: $indent-2 var(--padding-h) var(--padding-bottom);
+  padding: var(--padding-top) var(--padding-h) var(--padding-bottom);
 
   @include gap($indent-2);
 
   @include lg {
+    --padding-top: #{$indent};
     --padding-h: 0;
     --padding-bottom: 0;
 

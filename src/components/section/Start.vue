@@ -64,11 +64,6 @@ export default defineComponent({
 
   @include md {
     max-width: initial;
-    padding: 0 $indent;
-  }
-
-  @include sm {
-    padding: 0 $indent-half;
   }
 
   h1 {

@@ -245,7 +245,7 @@ $dark-gray: darken($gray, 33%);
     margin-bottom: 0;
 
     @include lg {
-      margin-bottom: $indent-half;
+      margin-bottom: $indent;
     }
   }
 }
@@ -273,7 +273,6 @@ $dark-gray: darken($gray, 33%);
 
   @include lg {
     font-size: 1.5rem;
-    margin-bottom: $indent-half;
   }
 }
 
@@ -284,6 +283,10 @@ $dark-gray: darken($gray, 33%);
   margin-bottom: $indent-half;
 
   @include sm {
+    font-size: 0.8rem;
+  }
+
+  @include xs {
     font-size: 0.7rem;
   }
 
@@ -297,10 +300,6 @@ $dark-gray: darken($gray, 33%);
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: $indent;
-
-  @include lg {
-    margin-bottom: $indent-half;
-  }
 }
 
 .strike {
@@ -396,7 +395,7 @@ $light-gray: lighten($gray, 25%);
 
   @include lg {
     min-width: auto;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 0.6rem;
   }
 
