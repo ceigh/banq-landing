@@ -200,9 +200,9 @@ $dark-gray: darken($gray, 33%);
   max-width: 80%;
 
   @include lg {
+    max-width: initial;
+    margin: 0 0 $indent;
     padding-top: $indent-2;
-    max-width: 90%;
-    margin-bottom: $indent;
   }
 }
 
@@ -221,9 +221,10 @@ $dark-gray: darken($gray, 33%);
     padding-right: $padding;
 
     @include lg {
+      padding: 0 $indent-half;
       border-right: none;
       padding-right: 0;
-      margin-bottom: $indent-2;
+      margin-bottom: $indent;
     }
   }
 
@@ -231,7 +232,8 @@ $dark-gray: darken($gray, 33%);
     padding-left: $padding;
 
     @include lg {
-      padding-left: 0;
+      padding: $indent $indent-half 0;
+      background: lighten($gray, 25%);
     }
   }
 }
