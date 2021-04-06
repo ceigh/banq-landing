@@ -11,8 +11,12 @@
   </nav>
 
   <div class='actions'>
-    <a class='phone-number' :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <Button text='перезвоните мне' href='#call'
+    <a class='phone-number'
+      :href='phoneNumberHref'>{{ phoneNumber }}</a>
+    <a class='phone-icon' :href='phoneNumberHref'>
+      <span class='material-icons'>phone</span>
+    </a>
+    <Button class='button' text='перезвоните мне' href='#call'
       :icon='false' white :border='active' />
   </div>
 </header>
@@ -97,7 +101,7 @@ header {
   width: 8rem;
 
   @include sm {
-    width: 5rem;
+    width: 7rem;
     margin-right: $indent-half / 2;
   }
 }
@@ -119,9 +123,29 @@ nav {
     font-size: 0.7rem;
   }
 
-  .phone-number {
-    @include xs {
+  .phone-number,
+  .button {
+    @include sm {
       display: none;
+    }
+  }
+
+  .phone-icon {
+    display: none;
+    background: $white;
+    border-radius: 100%;
+    margin: 0;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 1.2rem;
+    }
+
+    @include sm {
+      display: flex;
     }
   }
 }

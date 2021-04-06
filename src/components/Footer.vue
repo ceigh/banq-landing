@@ -85,7 +85,7 @@ $dark-gray: darken($gray, 33%);
   display: block;
 
   @include lg {
-    width: 5rem;
+    width: 7rem;
     margin: 0 auto;
   }
 

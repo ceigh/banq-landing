@@ -47,10 +47,6 @@ $background: #efc1ae;
     // max-height: calc(150vh - var(--padding-top));
   }
 
-  @include md {
-    height: calc(100vh - var(--padding-top));
-  }
-
   @include sm {
     --padding-top: #{$indent-3};
   }
@@ -62,7 +58,6 @@ $background: #efc1ae;
 
   @include lg {
     margin: 0 $indent-2;
-    text-align: center;
     background: $background;
     z-index: 1;
   }
