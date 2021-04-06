@@ -36,15 +36,21 @@ $background: #efc1ae;
   align-items: center;
 
   @include lg {
-    --padding-top: #{$indent-4};
+    --padding-top: #{$indent-2};
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-top: var(--padding-top);
+    justify-content: center;
     background: $background;
     height: calc(100vh - var(--padding-top));
     overflow: hidden;
+    padding-top: var(--padding-top);
+  }
+
+  @include md {
+    --padding-top: #{$indent-4};
+
+    justify-content: space-between;
   }
 
   @include sm {
@@ -113,18 +119,20 @@ $background: #efc1ae;
   position: relative;
 
   @include lg {
+    display: none;
     min-height: 700px;
     width: 100%;
     background-position-y: bottom;
   }
 
   @include md {
+    display: initial;
     min-height: 450px;
     max-height: 580px;
   }
 
   @include sm {
-    min-height: 350px;
+    min-height: 300px;
   }
 
   @include xs {
