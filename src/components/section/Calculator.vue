@@ -260,8 +260,8 @@ $dark-gray: darken($gray, 33%);
     background: url('~@/assets/img/section/calculator/circle.svg');
     background-repeat: no-repeat;
     position: absolute;
-    top: -18%;
-    right: -20%;
+    top: -24%;
+    right: -25%;
     width: 150%;
     height: 150%;
   }
