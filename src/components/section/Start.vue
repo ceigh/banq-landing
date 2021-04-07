@@ -11,7 +11,7 @@
     <Button text='подробнее' href='#usual' big />
   </div>
 
-  <img src='@/assets/img/section/start/2.png' alt='columns' />
+  <img src='@/assets/img/section/start/columns.png' alt='columns' />
 </div>
 </template>
 
@@ -33,20 +33,42 @@ export default defineComponent({
   @include lg {
     --padding-top: #{$indent-4};
     --padding-h: #{$indent-2};
+    --height: 120vh;
 
     display: flex;
     align-items: flex-start;
     justify-content: center;
     padding: var(--padding-top) var(--padding-h) 0;
-    height: calc(100vh - var(--padding-top));
+    height: calc(var(--height) - var(--padding-top));
+    background: url('~@/assets/img/section/start/columns.png');
+    background-size: cover;
+    background-position-y: bottom;
+    min-height: 1360px;
+    max-height: 2650px;
   }
 
   @include md {
+    --padding-top: #{$indent-3};
     --padding-h: #{$indent};
+
+    min-height: 970px;
+    max-height: 1600px;
   }
 
   @include sm {
+    --padding-top: #{1.2 * $indent-3};
     --padding-h: #{$indent-half};
+    --height: 105vh;
+
+    justify-content: flex-start;
+    min-height: 640px;
+    max-height: 800px;
+  }
+
+  @include xs {
+    --height: 130vh;
+
+    max-height: 680px;
   }
 }
 
@@ -117,7 +139,7 @@ img {
   max-height: 1024px;
   width: 100%;
   object-fit: cover;
-  object-position: left;
+  object-position: bottom;
 
   @include lg {
     display: none;
