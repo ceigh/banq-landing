@@ -56,7 +56,7 @@
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate1 }}%</span>
-              <span class='strike'>{{ rate }}%</span>
+              <!--<span class='strike'>{{ rate }}%</span>-->
             </div>
           </div>
           <div>
@@ -78,7 +78,7 @@
             </p>
             <div class='switch-number-value'>
               <span>{{ downedRate2 }}%</span>
-              <span class='strike'>{{ downedRate1 }}%</span>
+              <!--<span class='strike'>{{ downedRate1 }}%</span>-->
             </div>
           </div>
           <div>
@@ -209,30 +209,62 @@ $dark-gray: darken($gray, 33%);
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: linear-gradient(267.22deg, #ebeef1 50%, #f6f8fb 60.35%);
+  border-radius: $radius;
+  box-shadow: $shadow;
 
   @include lg {
     display: block;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   $padding: $indent-4;
 
-  > :first-child {
-    border-right: 0.1rem solid $gray;
-    padding-right: $padding;
+  > div {
+    border-radius: $radius;
+    padding: $indent 1.5 * $indent;
 
     @include lg {
-      padding: 0 $indent-half;
-      border-right: none;
+      border-radius: 0;
+      padding: $indent;
+    }
+
+    @include xs {
+      padding: $indent-half;
+    }
+  }
+
+  > :first-child {
+    @include lg {
       margin-bottom: $indent;
     }
   }
 
   > :last-child {
-    padding-left: $padding;
+    background: $white;
+    position: relative;
 
     @include lg {
-      padding: $indent $indent-half 0;
       background: lighten($gray, 25%);
+    }
+
+    &::before {
+      $border-size: 1rem;
+      $transparent-border: $border-size solid transparent;
+
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: $transparent-border;
+      border-bottom: $transparent-border;
+      border-left: $border-size solid #ebeef1;
     }
   }
 }
@@ -303,6 +335,7 @@ $dark-gray: darken($gray, 33%);
   margin-bottom: $indent;
 }
 
+/*
 .strike {
   margin-left: $indent-half;
   color: $gray;
@@ -319,6 +352,7 @@ $dark-gray: darken($gray, 33%);
     transform: translateY(-50%);
   }
 }
+*/
 
 .switch {
   &-number {

@@ -118,7 +118,7 @@ export default defineComponent({
 form {
   border-radius: 1.5rem;
   background: $white;
-  box-shadow: 0 1rem 5rem rgba($black, 0.2);
+  box-shadow: $shadow;
   padding: $indent-3 $indent;
   margin: auto;
   max-width: 80%;

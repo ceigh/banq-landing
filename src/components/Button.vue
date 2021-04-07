@@ -58,7 +58,7 @@ button {
   justify-content: center;
   white-space: nowrap;
   border: 1px solid transparent;
-  border-radius: 0.7rem;
+  border-radius: $radius;
   cursor: pointer;
   text-transform: uppercase;
   padding: 0 var(--padding);
