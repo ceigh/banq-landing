@@ -121,6 +121,7 @@ export default defineComponent({
     }
 
     @include sm {
+      max-width: 90%;
       margin-left: 4rem;
     }
 
@@ -223,6 +224,10 @@ export default defineComponent({
     @include lg {
       position: initial;
       margin-bottom: $indent;
+    }
+
+    @include md {
+      text-align: center;
     }
   }
 

@@ -63,13 +63,20 @@ $background: #efc1ae;
   max-width: 75%;
 
   @include lg {
-    margin: 0 $indent-2;
+    margin: 0;
     background: $background;
     z-index: 1;
   }
 
   @include md {
     max-width: initial;
+  }
+
+  h1,
+  p {
+    @include lg {
+      padding: 0 $indent-half;
+    }
   }
 
   h1 {
@@ -82,10 +89,6 @@ $background: #efc1ae;
     }
 
     @include sm {
-      font-size: 2.3rem;
-    }
-
-    @include xs {
       font-size: 2rem;
     }
   }

@@ -13,7 +13,8 @@
   <div class='actions'>
     <a class='phone-number'
       :href='phoneNumberHref'>{{ phoneNumber }}</a>
-    <a class='phone-icon' :href='phoneNumberHref'>
+    <a class='phone-icon' :class='{ active }'
+      :href='phoneNumberHref'>
       <span class='material-icons'>phone</span>
     </a>
     <Button class='button' text='перезвоните мне' href='#call'
@@ -139,6 +140,7 @@ nav {
     width: 2rem;
     align-items: center;
     justify-content: center;
+    border: 1px solid transparent;
 
     span {
       font-size: 1.2rem;
@@ -146,6 +148,10 @@ nav {
 
     @include sm {
       display: flex;
+    }
+
+    &.active {
+      border: 1px solid $black;
     }
   }
 }
