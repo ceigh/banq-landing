@@ -31,7 +31,7 @@ export default defineComponent({
   align-items: center;
 
   @include lg {
-    --padding-top: #{$indent-4};
+    --padding-top: #{2 * $indent-4};
     --padding-h: #{$indent-2};
     --height: 120vh;
 
@@ -48,7 +48,7 @@ export default defineComponent({
   }
 
   @include md {
-    --padding-top: #{$indent-3};
+    --padding-top: #{$indent-4};
     --padding-h: #{$indent};
 
     min-height: 970px;
