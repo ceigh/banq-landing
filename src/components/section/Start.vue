@@ -27,28 +27,26 @@ export default defineComponent({
 <style lang='scss' scoped>
 .container {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.7fr 1fr;
   align-items: center;
 
   @include lg {
-    --padding-top: #{$indent-2};
+    --padding-top: #{$indent-4};
+    --padding-h: #{$indent-2};
 
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
+    padding: var(--padding-top) var(--padding-h) 0;
     height: calc(100vh - var(--padding-top));
-    overflow: hidden;
-    padding-top: var(--padding-top);
   }
 
   @include md {
-    --padding-top: #{$indent-4};
-
-    justify-content: space-between;
+    --padding-h: #{$indent};
   }
 
   @include sm {
-    --padding-top: #{$indent-3};
+    --padding-h: #{$indent-half};
   }
 }
 
@@ -58,44 +56,49 @@ export default defineComponent({
 
   @include lg {
     margin: 0;
-    z-index: 1;
+    max-width: 100%;
   }
 
   @include md {
-    max-width: initial;
+    max-width: 80%;
   }
 
-  h1,
-  p {
-    @include lg {
-      padding: 0 $indent-half;
-    }
+  @include sm {
+    max-width: 90%;
+  }
+
+  @include xs {
+    max-width: 100%;
   }
 
   h1 {
     font-size: 4rem;
-    line-height: 1.2;
     font-weight: bold;
+    line-height: 1.2;
 
     @include md {
       font-size: 3rem;
     }
 
     @include sm {
-      font-size: 2rem;
+      font-size: 2.1rem;
+    }
+
+    @include xs {
+      font-size: 1.9rem;
     }
   }
 
   p {
-    --margin: #{$indent};
+    --margin-v: #{$indent};
 
     font-family: SFUIDisplay-Medium, sans-serif;
     font-size: 1.5rem;
-    margin: var(--margin) 0;
+    margin: var(--margin-v) 0;
     color: $light-black;
 
     @include sm {
-      --margin: #{$indent-half};
+      --margin-v: #{$indent-half};
 
       font-size: 1rem;
     }
