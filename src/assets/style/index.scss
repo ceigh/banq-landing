@@ -46,3 +46,21 @@ html {
     margin-left: 2rem;
   }
 }
+
+// see @/_
+h1,
+h2,
+p {
+  opacity: 0;
+  transform: rotateX(75deg) rotateY(10deg) rotateZ(-9deg);
+  transform-origin: top;
+  transition:
+    opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+    transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition-delay: 0.1s;
+
+  &[data-is-visible='1'] {
+    opacity: 1;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}

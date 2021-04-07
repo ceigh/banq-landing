@@ -10,6 +10,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import { checkVisibility } from './_'
 
 import Header from './components/Header.vue'
 import SectionStart from './components/section/Start.vue'
@@ -28,6 +29,14 @@ export default defineComponent({
     SectionCalculator,
     SectionForm,
     Footer
+  },
+
+  mounted () {
+    checkVisibility()
+    window.addEventListener('scroll', checkVisibility)
+  },
+  unmounted () {
+    window.removeEventListener('scroll', checkVisibility)
   }
 })
 </script>
