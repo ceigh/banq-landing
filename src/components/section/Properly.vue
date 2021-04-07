@@ -267,13 +267,21 @@ export default defineComponent({
       background: url('~@/assets/img/section/properly/arrow.svg');
       background-repeat: no-repeat;
       background-size: contain;
-      top: -28px;
-      right: -85px;
-      transform: rotate(-70deg);
+      top: -20px;
+      right: -70px;
+      transform: scaleX(-1) rotate(-2deg);
 
-      @include lg {
-        top: -26px;
+      @include sm {
         height: 1.5rem;
+        top: -15px;
+        right: -52px;
+        transform: scaleX(-1) rotate(20deg);
+      }
+
+      @include xs {
+        top: -18px;
+        right: -43px;
+        transform: scaleX(-1) rotate(50deg);
       }
     }
   }
