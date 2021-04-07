@@ -11,10 +11,7 @@
     <Button text='подробнее' href='#usual' big />
   </div>
 
-  <div class='columns'>
-    <span class='percent'>9%</span>
-    <span class='percent'>12%</span>
-  </div>
+  <img src='@/assets/img/section/start/2.png' alt='columns' />
 </div>
 </template>
 
@@ -28,8 +25,6 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-$background: #efc1ae;
-
 .container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -41,7 +36,6 @@ $background: #efc1ae;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: $background;
     height: calc(100vh - var(--padding-top));
     overflow: hidden;
     padding-top: var(--padding-top);
@@ -64,7 +58,6 @@ $background: #efc1ae;
 
   @include lg {
     margin: 0;
-    background: $background;
     z-index: 1;
   }
 
@@ -115,67 +108,16 @@ $background: #efc1ae;
   }
 }
 
-.columns {
-  background: url('~@/assets/img/section/start/2.png');
-  background-size: cover;
-  height: 51rem;
-  position: relative;
+img {
+  min-height: 670px;
+  height: 100vh;
+  max-height: 1024px;
+  width: 100%;
+  object-fit: cover;
+  object-position: left;
 
   @include lg {
     display: none;
-    min-height: 700px;
-    width: 100%;
-    background-position-y: bottom;
-  }
-
-  @include md {
-    display: initial;
-    min-height: 450px;
-    max-height: 580px;
-  }
-
-  @include sm {
-    min-height: 300px;
-  }
-
-  @include xs {
-    min-height: 220px;
-  }
-
-  .percent {
-    color: $white;
-    position: absolute;
-    font-size: 5rem;
-    display: none;
-
-    @include lg {
-      top: unset !important;
-      font-size: 3rem;
-    }
-
-    @include xs {
-      font-size: 2rem;
-    }
-
-    &:first-child {
-      top: 450px;
-      left: 200px;
-
-      @include lg {
-        bottom: 30vw;
-        left: 22vw;
-      }
-    }
-
-    &:last-child {
-      top: 300px;
-      left: 350px;
-
-      @include lg {
-        bottom: 50vw;
-        left: 39vw;
-      }
-    }
   }
 }
 </style>
