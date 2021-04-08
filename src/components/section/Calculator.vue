@@ -232,7 +232,7 @@ $dark-gray: darken($gray, 33%);
     }
 
     @include xs {
-      padding: $indent-half;
+      padding: $indent-half $indent-half 0;
     }
   }
 
@@ -316,10 +316,6 @@ $dark-gray: darken($gray, 33%);
   margin-bottom: $indent-half;
 
   @include sm {
-    font-size: 0.8rem;
-  }
-
-  @include xs {
     font-size: 0.7rem;
   }
 
