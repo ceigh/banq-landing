@@ -37,7 +37,7 @@
     </a>
     <span>
       ©
-      <a :href='publicPath'>banq.ru</a>
+      <a :href='publicPath'>banq-finance.ru</a>
       {{ year }}
     </span>
   </nav>
