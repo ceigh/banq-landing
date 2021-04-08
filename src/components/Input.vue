@@ -25,6 +25,7 @@ export default defineComponent({
 input {
   $border-width: 2px;
 
+  border-radius: 0;
   border: none;
   border-bottom: $border-width solid lighten($gray, 15%);
   padding: 1/1.3 * $indent-half $indent-half;
