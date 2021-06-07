@@ -20,7 +20,7 @@ const router = createRouter({
   scrollBehavior (_to, _from, savedPosition) {
     if (savedPosition) return savedPosition
     return new Promise(resolve => {
-      setTimeout(() => resolve({ top: 0 }), 0)
+      setTimeout(() => resolve({ top: 0 }), 50)
     })
   }
 })
