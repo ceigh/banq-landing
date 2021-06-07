@@ -1,9 +1,9 @@
 <template>
 <div class='container'>
   <div class='col-1'>
-    <a class='logo' :href='publicPath'>
+    <router-link class='logo' to='/'>
       <img src='@/assets/img/logo.svg' alt='banq' />
-    </a>
+    </router-link>
 
     <p class='desc'>
       Banq - это не банк. Мы ищем рефинансирование по самой низкой
