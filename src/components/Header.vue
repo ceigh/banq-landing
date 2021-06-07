@@ -4,7 +4,7 @@
     <img src='@/assets/img/logo.svg' alt='banq' />
   </router-link>
 
-  <nav v-if='$route.name === "home"'>
+  <nav v-if='isHomeRoute'>
     <span class='link' v-scroll-to='"#usual"'>Как делают все</span>
     <span class='link' v-scroll-to='"#properly"'>Как нужно делать</span>
     <span class='link' v-scroll-to='"#calculator"'>Калькулятор</span>
@@ -17,8 +17,8 @@
       :href='phoneNumberHref'>
       <span class='material-icons'>phone</span>
     </a>
-    <Button class='button' text='перезвоните мне' href='#call'
-      :icon='false' white :border='active' />
+    <Button v-if='isHomeRoute' class='button' text='перезвоните мне'
+      href='#call' :icon='false' white :border='active' />
   </div>
 </header>
 </template>
@@ -42,6 +42,10 @@ export default defineComponent({
   computed: {
     phoneNumberHref (): string {
       return getPhoneNumberHref(this.phoneNumber)
+    },
+
+    isHomeRoute (): boolean {
+      return this.$route.name === 'home'
     }
   },
 
