@@ -16,7 +16,13 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior (_to, _from, savedPosition) {
+    if (savedPosition) return savedPosition
+    return new Promise(resolve => {
+      setTimeout(() => resolve({ top: 0 }), 0)
+    })
+  }
 })
 
 export default router
