@@ -4,7 +4,7 @@
     <img src='@/assets/img/logo.svg' alt='banq' />
   </router-link>
 
-  <nav>
+  <nav v-if='$route.name === "home"'>
     <span class='link' v-scroll-to='"#usual"'>Как делают все</span>
     <span class='link' v-scroll-to='"#properly"'>Как нужно делать</span>
     <span class='link' v-scroll-to='"#calculator"'>Калькулятор</span>

@@ -26,19 +26,22 @@
   </div>
 
   <nav>
-    <p>Меню</p>
-    <span class='link nav-item' v-scroll-to='"#usual"'>
-      Как делают все
-      <span class='material-icons md-15'>navigate_next</span>
-    </span>
-    <span class='link nav-item' v-scroll-to='"#properly"'>
-      Как нужно делать
-      <span class='material-icons md-15'>navigate_next</span>
-    </span>
-    <span class='link nav-item' v-scroll-to='"#calculator"'>
-      Калькулятор
-      <span class='material-icons md-15'>navigate_next</span>
-    </span>
+    <div class='menu' v-if='$route.name === "home"'>
+      <p>Меню</p>
+      <span class='link nav-item' v-scroll-to='"#usual"'>
+        Как делают все
+        <span class='material-icons md-15'>navigate_next</span>
+      </span>
+      <span class='link nav-item' v-scroll-to='"#properly"'>
+        Как нужно делать
+        <span class='material-icons md-15'>navigate_next</span>
+      </span>
+      <span class='link nav-item' v-scroll-to='"#calculator"'>
+        Калькулятор
+        <span class='material-icons md-15'>navigate_next</span>
+      </span>
+    </div>
+
     <span>
       ©
       <router-link to='/'>banq-finance.ru</router-link>
@@ -148,15 +151,24 @@ $dark-gray: darken($gray, 33%);
   }
 }
 
-nav {
-  @include plain-links($dark-gray);
-
+@mixin col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+nav {
+  @include plain-links($dark-gray);
+  @include col;
 
   @include lg {
     margin-top: $indent;
+  }
+
+  .menu {
+    @include col;
+
+    min-height: 70%;
   }
 
   $border: 1px solid lighten($gray, 20%);
