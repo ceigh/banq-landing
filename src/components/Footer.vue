@@ -10,7 +10,7 @@
       ставке среди всех предложений на рынке.
     </p>
 
-    <p class='phone'>
+    <p class='links'>
       <span>
         Телефон
         <span class='office'>
@@ -18,6 +18,10 @@
         </span>
       </span>
       <a :href='phoneNumberHref'>{{ phoneNumber }}</a>
+
+      <router-link class='privacy' to='/privacy'>
+        Политика обработки данных
+      </router-link>
     </p>
   </div>
 
@@ -37,7 +41,7 @@
     </a>
     <span>
       ©
-      <a :href='publicPath'>banq-finance.ru</a>
+      <router-link to='/'>banq-finance.ru</router-link>
       {{ year }}
     </span>
   </nav>
@@ -53,8 +57,7 @@ export default defineComponent({
   data () {
     return {
       phoneNumber,
-      year: new Date().getFullYear(),
-      publicPath: process.env.BASE_URL
+      year: new Date().getFullYear()
     }
   },
 
@@ -110,11 +113,14 @@ $dark-gray: darken($gray, 33%);
     }
   }
 
-  .phone {
-    margin-top: $indent-4;
+  .links {
+    --margin-top: #{$indent-4};
+
+    margin-top: var(--margin-top);
 
     @include lg {
-      margin-top: $indent-half;
+      --margin-top: #{$indent-half};
+
       font-size: 0.8rem;
       text-align: center;
     }
@@ -124,11 +130,21 @@ $dark-gray: darken($gray, 33%);
         display: none;
       }
     }
+
+    .privacy {
+      @include lg {
+        display: block;
+        margin-top: var(--margin-top);
+      }
+    }
+
+    :not(:last-child) {
+      margin-right: 1/2 * $indent-half;
+    }
   }
 
   span {
     color: $dark-gray;
-    margin-right: 1/2 * $indent-half;
   }
 }
 
