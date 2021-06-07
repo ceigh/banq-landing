@@ -5,9 +5,9 @@
   </router-link>
 
   <nav>
-    <a href='#usual'>Как делают все</a>
-    <a href='#properly'>Как нужно делать</a>
-    <a href='#calculator'>Калькулятор</a>
+    <span class='link' v-scroll-to='"#usual"'>Как делают все</span>
+    <span class='link' v-scroll-to='"#properly"'>Как нужно делать</span>
+    <span class='link' v-scroll-to='"#calculator"'>Калькулятор</span>
   </nav>
 
   <div class='actions'>

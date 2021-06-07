@@ -1,7 +1,9 @@
 @mixin plain-links($color: $black) {
-  a {
+  a,
+  .link {
     text-decoration: none;
     color: $color;
+    cursor: pointer;
 
     &:hover,
     &:focus {

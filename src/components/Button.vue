@@ -1,10 +1,10 @@
 <template>
-<a :href='href' v-if='href'>
+<span v-scroll-to='href' v-if='href'>
   <button :class='{ white, big, border }'>
     {{ text }}
     <span v-if='icon' class='material-icons md-15'>north_east</span>
   </button>
-</a>
+</span>
 
 <button :class='{ white, big, border }' v-else>
   {{ text }}

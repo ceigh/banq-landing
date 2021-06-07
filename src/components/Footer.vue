@@ -27,18 +27,18 @@
 
   <nav>
     <p>Меню</p>
-    <a class='nav-item' href='#usual'>
+    <span class='link nav-item' v-scroll-to='"#usual"'>
       Как делают все
       <span class='material-icons md-15'>navigate_next</span>
-    </a>
-    <a class='nav-item' href='#properly'>
+    </span>
+    <span class='link nav-item' v-scroll-to='"#properly"'>
       Как нужно делать
       <span class='material-icons md-15'>navigate_next</span>
-    </a>
-    <a class='nav-item' href='#calculator'>
+    </span>
+    <span class='link nav-item' v-scroll-to='"#calculator"'>
       Калькулятор
       <span class='material-icons md-15'>navigate_next</span>
-    </a>
+    </span>
     <span>
       ©
       <router-link to='/'>banq-finance.ru</router-link>
