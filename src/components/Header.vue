@@ -1,8 +1,8 @@
 <template>
 <header :class='{ active }'>
-  <a class='logo' :href='publcPath'>
+  <router-link class='logo' to='/'>
     <img src='@/assets/img/logo.svg' alt='banq' />
-  </a>
+  </router-link>
 
   <nav>
     <a href='#usual'>Как делают все</a>
@@ -35,8 +35,7 @@ export default defineComponent({
   data () {
     return {
       phoneNumber,
-      active: false,
-      publcPath: process.env.BASE_URL
+      active: false
     }
   },
 
