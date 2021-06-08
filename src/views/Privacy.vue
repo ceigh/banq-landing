@@ -361,12 +361,7 @@ export default defineComponent({
   }
 
   .heading {
-    font-family: SFUIDisplay-Medium, sans-serif;
-    font-size: 1.4rem;
-
-    @include sm {
-      font-size: 1.2rem;
-    }
+    font-weight: bold;
   }
 }
 </style>

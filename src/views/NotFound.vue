@@ -26,6 +26,7 @@
 
 h1 {
   font-size: 4rem;
+  font-weight: bold;
   text-align: center;
 
   @include lg {
