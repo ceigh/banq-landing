@@ -1,16 +1,26 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import {
+  createRouter, createWebHashHistory, RouteRecordRaw
+} from 'vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+const getComponent = (name: string): () => RouteRecordRaw['component'] =>
+  () => import(`../views/${name}.vue`)
+
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: getComponent('Home')
   },
   {
     path: '/privacy',
     name: 'privacy',
-    component: () => import('../views/Privacy.vue')
+    component: getComponent('Privacy')
+  },
+
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: getComponent('NotFound')
   }
 ]
 
